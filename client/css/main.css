@@ -1,3 +1,6 @@
+/****************
+*     HEADER    *
+*****************/
 .header{
   position: absolute;
   top:0;
@@ -15,12 +18,16 @@
 .menuButton{
   position: absolute;
   top: 0;
+  left: 0;
   font-size: 20px;
-  margin: 14px;
+  padding: 14px;
   color: #fff;
   text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
   cursor: pointer;
 }
+/****************
+*     CONTENT    *
+*****************/
 .content{
   position:absolute;
   top: 40px;
@@ -30,22 +37,14 @@
   width: 80%;
   margin: 15px 25px;
 }
-.overlay {
-  position:absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none;
-  background-color: rgba(0, 0, 0, .65);
-  background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
-  z-index: 9997;
-  color: white;
-}
+/****************
+*     MENU      *
+*****************/
 .menu{
   position: absolute;
   top: 0;
-  bottom:0;
+  bottom: 0;
+  min-height: 400px;
   left: -300px;
   font-size: 17px;
   width: 250px;
@@ -53,56 +52,85 @@
   border-right: 1px solid #B54132;
   z-index: 9999;
 }
+.menu ul{
+  border-top: 1px solid #B54132;
+}
 .menu .profile{
   height: 85px;
-  border-bottom: 1px solid #B54132;
   width: 100%;
+  color: #B54132;
+  overflow: none;
 }
 .menu .profilePic{
   height: 75px;
+  width: 75px;
   border: 1px solid #B54132;
   margin: 5px;
 }
 .menu .profileName{
   margin: 5px;
   vertical-align: bottom;
-  color: #B54132;
 }
 .menu .logo{
   position: absolute;
-  left: 45px;
+  left: 65px;
   bottom: 0;
-  width: 150px;
+  width: 100px;
 }
-.nav-stacked li+li{
+.menu .badge{
+  float: right;
+  margin:4px;
+  background: #F0592B;
+}
+.menu .nav-stacked li+li{
   margin:0;
 }
-.nav li a{
+.menu li a{
   -webkit-border-radius: 0px;
   -moz-border-radius:  0px;
   border-radius:  0px;
   color: #F0592B;
+  background: #fff;
   cursor: pointer;
 }
-.nav li.active a{
+.menu li.active a{
   background: #F0592B;
   text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
 }
-.nav li.active a:hover{
+.menu li.active a:hover{
   background: #F0592B;
   text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
 }
-.nav li a:hover{
+.menu li.active .badge{
+  color: #F0592B;
+  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+  border:1px solid #B54132;
+}
+.menu li a:hover{
   background: #fff;
   color: #F0592B;
 }
-/*.nav li.active a:hover{
-  background: #B54132;
-  text-shadow: none;
-}
-.nav li a:hover{
-  background: #B0FFEA;
-}*/
-.nav .glyphicon:before{
+.menu .nav .glyphicon:before{
   margin: 30px;
+}
+/****************
+*     COMMON    *
+*****************/
+.overlay {
+  position:absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 400px;
+  display: none;
+  background-color: rgba(0, 0, 0, .65);
+  background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
+  z-index: 9997;
+  color: white;
+}
+@media screen and (max-height: 520px) {
+  .menu .logo{
+    display: none;
+  }
 }
