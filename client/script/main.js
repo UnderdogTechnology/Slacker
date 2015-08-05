@@ -11,7 +11,11 @@ var curComp = {
 var ctx = {
 	menuVisible: false,
 	activePage: 'Home',
-	activeComp: curComp
+	activeComp: curComp,
+	profile: {
+		name: 'David Magee',
+		pic: './images/ProfilePic.png'
+	}
 };
 
 var menuItems = [
@@ -31,14 +35,14 @@ var menuItems = [
 	script: 'meetup.js'
 },
 {
-	name: 'Profile',
-	icon: 'glyphicon glyphicon-user',
-	script: 'profile.js'
-},
-{
 	name: 'Calculator',
 	icon: 'glyphicon glyphicon-th',
 	script: 'calculator.js'
+},
+{
+	name: 'Profile',
+	icon: 'glyphicon glyphicon-user',
+	script: 'profile.js'
 }
 ];
 
@@ -83,6 +87,10 @@ template.view = function(){
 		ctx.activeComp.view
 		]),
 	m('div.menu', [
+		m('div.profile',[
+				m('img.profilePic',{src:ctx.profile.pic}),
+				m('span.profileName',ctx.profile.name)
+			]),
 		m('ul', {class:'nav nav-pills nav-stacked'},[
 			menuItems.map(function(item, index){
 				return m('li', {onclick: util.dispatch, role: 'presentation', class: (item.name == ctx.activePage ? 'active' : '')},[
@@ -91,7 +99,7 @@ template.view = function(){
 						])
 					]);
 			}),
-			m('img',{src:'./logo.png', class:'logo'})
+			m('img',{src:'./images/logo.png', class:'logo'})
 			])
 		])
 	];
