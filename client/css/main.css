@@ -1,0 +1,88 @@
+.header{
+  position: absolute;
+  top:0;
+  left:-1px;
+  right:0px;
+  height:60px;
+  line-height:150%;
+  text-align: center;
+  background: #F0592B;
+  border:1px solid #B54132;
+  color: #fff;
+  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+  margin: 0;
+}
+.header span{
+  margin: 12px;
+}
+.menuButton{
+  position: absolute;
+  top:0;
+  font-size:40px;
+  margin: 12px;
+  color: #fff;
+  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+  cursor: pointer;
+}
+.content{
+  position:absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  margin: 25px 50px;
+}
+.overlay {
+  position:absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, .65);
+  background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
+  z-index: 9997;
+  color: white;
+}
+.menu{
+  position: absolute;
+  top: 60px;
+  bottom:0;
+  left: -300px;
+  font-size: 17px;
+  width: 300px;
+  background: #fff;
+  border-right: 1px solid #B54132;
+  z-index: 9999;
+}
+.menu .logo{
+  position: absolute;
+  left: 40px;
+  bottom: 0;
+  width: 200px;
+}
+.nav-stacked li+li{
+  margin:0;
+}
+.nav li a{
+  -webkit-border-radius: 0px;
+  -moz-border-radius:  0px;
+  border-radius:  0px;
+  color: #F0592B;
+  cursor: pointer;
+}
+.nav li a:hover{
+  background: #B0FFEA;
+}
+.nav li.active a{
+  background: #F0592B;
+  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+}
+.nav li.active a:hover{
+  background: #B54132;
+  text-shadow: none;
+}
+.nav .glyphicon:before{
+  margin: 30px;
+}
