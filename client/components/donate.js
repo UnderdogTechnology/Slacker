@@ -1,7 +1,9 @@
 var donateComp = {
-	view: (function(){
+	controller: function(){
+	},
+	view: function(){
 		return [
 		m('p', 'This is a donate page')
 		];
-	})()
+	}
 };

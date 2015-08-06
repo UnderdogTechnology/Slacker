@@ -1,7 +1,9 @@
 var inboxComp = {
-	view: (function(){
+	controller: function(){
+	},
+	view: function(){
 		return [
 		m('p', 'This is an inbox page')
 		];
-	})()
+	}
 };

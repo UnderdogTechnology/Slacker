@@ -1,18 +1,6 @@
 var template = {};
 
-var ctx = {
-	menuVisible: false,
-	activePage: 'Home',
-	activeComp: homeComp,
-	profile: {
-		actualName: 'David Magee',
-		userName: 'divide100',
-		pic: './images/ProfilePic.png',
-		notifications: {
-			Inbox: 10
-		}
-	}
-};
+ctx.activeComp = homeComp;
 
 $('title').text('SlackR | ' + ctx.activePage);
 
@@ -59,43 +47,8 @@ var menuItems = [
 }
 ];
 
-var util = {
-	showMenu: function(){
-		$('.overlay').fadeIn();
-		$('.menu').animate({'left': '0'});
-		ctx.menuVisible = !ctx.menuVisible;
-	},
-	hideMenu: function(){
-		$('.overlay').fadeOut();
-		$('.menu').animate({'left': '-300px'});
-		ctx.menuVisible = !ctx.menuVisible;
-	},
-	toggleMenu: function(){
-		if(ctx.menuVisible)
-		{
-			util.hideMenu();
-		}
-		else
-		{
-			util.showMenu();
-		}
-	},
-	dispatcher: function(e){
-		ctx.activePage = ($(e.target).hasClass('itemName') ? e.target.innerText : ($(e.target).hasClass('badge') ? $(e.target).parent().find('.itemName')[0].innerText : $(e.target).find('.itemName')[0].innerText));
-		$('title').text('SlackR | ' + ctx.activePage);
-
-		ctx.activeComp = $.grep(menuItems, function(item){
-			return item.name == ctx.activePage;
-		})[0].component;
-
-		if(ctx.menuVisible){
-			util.hideMenu();
-		}
-	}
-};
-
 template.controller = function(){
-
+	ctx.activeComp.controller();
 };
 
 template.view = function(){
@@ -105,7 +58,7 @@ template.view = function(){
 		m('span.menuButton',{class:'glyphicon glyphicon-menu-hamburger', onclick: util.toggleMenu}),
 		m('div.overlay', {onclick: util.hideMenu}),
 		m('div.content',[
-			ctx.activeComp.view
+			ctx.activeComp.view()
 			]),
 		m('div.menu',[
 			m('div.profile',[
@@ -114,12 +67,12 @@ template.view = function(){
 				]),
 			m('ul', {class:'nav nav-pills nav-stacked'},[
 				menuItems.map(function(item, index){
-					return m('li', {onclick: util.dispatcher, role: 'presentation', class: (item.name == ctx.activePage ? 'active' : '')},[
+					return m('li', {onclick: util.dispatcher, role: 'presentation', class: (item.name == ctx.activePage ? 'active' : '')},
 						m('a', [
 							m('span.itemName',{class:item.icon},item.name),
 							(ctx.profile.notifications && ctx.profile.notifications[item.name] ? m('span.badge',ctx.profile.notifications[item.name]) : null)
 							])
-						]);
+						);
 				}),
 				m('img.logo',{src:'./images/logo.png'})
 				])
@@ -130,9 +83,9 @@ template.view = function(){
 	{
 		return [
 		m('h1.header',{onclick: util.hideMenu}, 'Login'),
-		m('div.content',[
+		m('div.content',
 			loginComp.view
-			])
+			)
 		];
 	}
 };

@@ -30,12 +30,10 @@
 *****************/
 .content{
   position:absolute;
-  top: 40px;
+  top: 45px;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 80%;
-  margin: 15px 25px;
 }
 /****************
 *     MENU      *
@@ -85,7 +83,8 @@
 .menu .nav-stacked li+li{
   margin:0;
 }
-.menu li a{
+.menu li a,
+.menu li a:hover{
   -webkit-border-radius: 0px;
   -moz-border-radius:  0px;
   border-radius:  0px;
@@ -93,10 +92,7 @@
   background: #fff;
   cursor: pointer;
 }
-.menu li.active a{
-  background: #F0592B;
-  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
-}
+.menu li.active a,
 .menu li.active a:hover{
   background: #F0592B;
   text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
@@ -105,10 +101,6 @@
   color: #F0592B;
   text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
   border:1px solid #B54132;
-}
-.menu li a:hover{
-  background: #fff;
-  color: #F0592B;
 }
 .menu .nav .glyphicon:before{
   margin: 30px;
@@ -129,8 +121,99 @@
   z-index: 9997;
   color: white;
 }
+.table tbody{
+  border-bottom: 1px solid #ddd;
+}
+.table .listBox{
+  min-width: 70px;
+  height: 75px;
+  border-right: 1px solid #ddd;
+  display: none;
+}
+.table .details{
+  position: relative;
+}
+.table td{
+  padding:4px !important;
+}
+form{
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  padding: 5px;
+}
+form .btn-group{
+  width: 100%;
+}
+form .btn-group .btn-primary{
+  float:right;
+}
+.btn, .form-control{
+  border-radius: 0;
+}
+.btn-primary{
+  background: #F0592B !important;
+  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132 !important;
+  border: 1px solid #B54132 !important;
+}
+.topBox{
+  position: relative;
+  height: 200px;
+  width: 100%;
+  border-bottom: 1px solid #B54132;
+  overflow: hidden;
+}
+.topBox img{
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+}
+.topBox .btn{
+  position: absolute;
+  bottom:0;
+  right:0;
+  border-bottom:none !important;
+  border-right:none !important;
+}
+.topBox #map{
+  height: 100%;
+  width: 100%;
+}
+/****************
+*    H:520px;   *
+*****************/
 @media screen and (max-height: 520px) {
   .menu .logo{
     display: none;
+  }
+}
+/****************
+*    w:450px;   *
+*****************/
+@media screen and (min-width: 450px) {
+  .table .listBox{
+    display: block;
+  }
+  .table .details div:nth-child(2){
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+  }
+  form{
+    width: 400px;
+  }
+  form label{
+    width:180px;
+    margin-right:5px;
+    text-align: right;
+  }
+  .form-control{
+    width:180px;
+    float:right;
+  }
+  form .btn-group{
+    display: block;
+    width:175px;
+    margin: 50px auto;
   }
 }
