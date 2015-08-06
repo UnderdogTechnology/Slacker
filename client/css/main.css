@@ -1,219 +1,261 @@
 /****************
 *     HEADER    *
 *****************/
-.header{
-  position: absolute;
-  top:0;
-  left:-1px;
-  right:0px;
-  height:45px;
-  line-height:45px;
-  text-align: center;
-  background: #F0592B;
-  border:1px solid #B54132;
-  color: #fff;
-  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
-  margin: 0;
+
+.header {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    right: 0px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #F0592B;
+    border: 1px solid #B54132;
+    color: #fff;
+    text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+    margin: 0;
 }
-.menuButton{
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 20px;
-  padding: 14px;
-  color: #fff;
-  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
-  cursor: pointer;
+
+.menuButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    padding: 14px;
+    color: #fff;
+    text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+    cursor: pointer;
 }
+
+
 /****************
 *     CONTENT    *
 *****************/
-.content{
-  position:absolute;
-  top: 45px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
+.content {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
+
+
 /****************
 *     MENU      *
 *****************/
-.menu{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  min-height: 400px;
-  left: -300px;
-  font-size: 17px;
-  width: 250px;
-  background: #fff;
-  border-right: 1px solid #B54132;
-  z-index: 9999;
+
+.menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    min-height: 400px;
+    left: -300px;
+    font-size: 17px;
+    width: 250px;
+    background: #fff;
+    border-right: 1px solid #B54132;
+    z-index: 9999;
 }
-.menu ul{
-  border-top: 1px solid #B54132;
+
+.menu ul {
+    border-top: 1px solid #B54132;
 }
-.menu .profile{
-  height: 85px;
-  width: 100%;
-  color: #B54132;
-  overflow: none;
+
+.menu .profile {
+    height: 85px;
+    width: 100%;
+    color: #B54132;
+    overflow: none;
 }
-.menu .profilePic{
-  height: 75px;
-  width: 75px;
-  border: 1px solid #B54132;
-  margin: 5px;
+
+.menu .profilePic {
+    height: 75px;
+    width: 75px;
+    border: 1px solid #B54132;
+    margin: 5px;
 }
-.menu .profileName{
-  margin: 5px;
-  vertical-align: bottom;
+
+.menu .profileName {
+    margin: 5px;
+    vertical-align: bottom;
 }
-.menu .logo{
-  position: absolute;
-  left: 65px;
-  bottom: 0;
-  width: 100px;
+
+.menu .logo {
+    position: absolute;
+    left: 65px;
+    bottom: 0;
+    width: 100px;
 }
-.menu .badge{
-  float: right;
-  margin:4px;
-  background: #F0592B;
+
+.menu .badge {
+    float: right;
+    margin: 4px;
+    background: #F0592B;
 }
-.menu .nav-stacked li+li{
-  margin:0;
+
+.menu .nav-stacked li+li {
+    margin: 0;
 }
+
 .menu li a,
-.menu li a:hover{
-  -webkit-border-radius: 0px;
-  -moz-border-radius:  0px;
-  border-radius:  0px;
-  color: #F0592B;
-  background: #fff;
-  cursor: pointer;
+.menu li a:hover {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    color: #F0592B;
+    background: #fff;
+    cursor: pointer;
 }
+
 .menu li.active a,
-.menu li.active a:hover{
-  background: #F0592B;
-  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+.menu li.active a:hover {
+    background: #F0592B;
+    text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
 }
-.menu li.active .badge{
-  color: #F0592B;
-  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
-  border:1px solid #B54132;
+
+.menu li.active .badge {
+    color: #F0592B;
+    text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+    border: 1px solid #B54132;
 }
-.menu .nav .glyphicon:before{
-  margin: 30px;
+
+.menu .nav .glyphicon:before {
+    margin: 30px;
 }
+
+
 /****************
 *     COMMON    *
 *****************/
+
 .overlay {
-  position:absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  min-height: 400px;
-  display: none;
-  background-color: rgba(0, 0, 0, .65);
-  background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
-  z-index: 9997;
-  color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 400px;
+    display: none;
+    background-color: rgba(0, 0, 0, .65);
+    background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
+    z-index: 9997;
+    color: white;
 }
-.table tbody{
-  border-bottom: 1px solid #ddd;
+
+.table tbody {
+    border-bottom: 1px solid #ddd;
 }
-.table .listBox{
-  min-width: 70px;
-  height: 75px;
-  border-right: 1px solid #ddd;
-  display: none;
+
+.table .listBox {
+    min-width: 70px;
+    height: 75px;
+    border-right: 1px solid #ddd;
+    display: none;
 }
-.table .details{
-  position: relative;
+
+.table .details {
+    position: relative;
 }
-.table td{
-  padding:4px !important;
+
+.table td {
+    padding: 4px !important;
 }
-form{
-  display: block;
-  margin: 10px auto;
-  width: 100%;
-  padding: 5px;
+
+form {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    padding: 5px;
 }
-form .btn-group{
-  width: 100%;
+
+form .btn-group {
+    width: 100%;
 }
-form .btn-group .btn-primary{
-  float:right;
+
+form .btn-group .btn-primary {
+    float: right;
 }
-.btn, .form-control{
-  border-radius: 0;
+
+.btn,
+.form-control {
+    border-radius: 0;
 }
-.btn-primary{
-  background: #F0592B !important;
-  text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132 !important;
-  border: 1px solid #B54132 !important;
+
+.btn-primary {
+    background: #F0592B !important;
+    text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132 !important;
+    border: 1px solid #B54132 !important;
 }
-.topBox{
-  position: relative;
-  height: 200px;
-  width: 100%;
-  border-bottom: 1px solid #B54132;
-  overflow: hidden;
+
+.topBox {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    border-bottom: 1px solid #B54132;
+    overflow: hidden;
 }
-.topBox img{
-  display: block;
-  margin: 0 auto;
-  height: 100%;
+
+.topBox img {
+    display: block;
+    margin: 0 auto;
+    height: 100%;
 }
-.topBox .btn{
-  position: absolute;
-  bottom:0;
-  right:0;
-  border-bottom:none !important;
-  border-right:none !important;
+
+.topBox .btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-bottom: none !important;
+    border-right: none !important;
 }
-.topBox #map{
-  height: 100%;
-  width: 100%;
+
+.topBox #map {
+    height: 100%;
+    width: 100%;
 }
+
+
 /****************
 *    H:520px;   *
 *****************/
+
 @media screen and (max-height: 520px) {
-  .menu .logo{
-    display: none;
-  }
+    .menu .logo {
+        display: none;
+    }
 }
+
+
 /****************
 *    w:450px;   *
 *****************/
+
 @media screen and (min-width: 450px) {
-  .table .listBox{
-    display: block;
-  }
-  .table .details div:nth-child(2){
-    position: absolute;
-    bottom: 0;
-    width: 95%;
-  }
-  form{
-    width: 400px;
-  }
-  form label{
-    width:180px;
-    margin-right:5px;
-    text-align: right;
-  }
-  .form-control{
-    width:180px;
-    float:right;
-  }
-  form .btn-group{
-    display: block;
-    width:175px;
-    margin: 50px auto;
-  }
+    .table .listBox {
+        display: block;
+    }
+    .table .details div:nth-child(2) {
+        position: absolute;
+        bottom: 0;
+        width: 95%;
+    }
+    form {
+        width: 400px;
+    }
+    form label {
+        width: 180px;
+        margin-right: 5px;
+        text-align: right;
+    }
+    .form-control {
+        width: 180px;
+        float: right;
+    }
+    form .btn-group {
+        display: block;
+        width: 175px;
+        margin: 50px auto;
+    }
 }
