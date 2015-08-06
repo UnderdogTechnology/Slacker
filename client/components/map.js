@@ -4,7 +4,9 @@ function initMap(address) {
         zoom: 10
     });
 
-    getLocation(map.setCenter);
+    getLocation(function(pos) {
+        map.setCenter(pos);
+    });
 
     // var geocoder = new google.maps.Geocoder();
 
