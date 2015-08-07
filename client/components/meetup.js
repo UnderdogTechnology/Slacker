@@ -5,4 +5,4 @@ var meetupComp = {
             m('p', 'This is a meetup page')
         ];
     }
-};
+}

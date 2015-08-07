@@ -1,6 +1,6 @@
 var template = {};
 
-ctx.activeComp = homeComp;
+ctx.activeView = homeComp.view;
 
 $('title').text('SlackR | ' + ctx.activePage);
 
@@ -39,24 +39,58 @@ var menuItems = [{
 }];
 
 template.controller = function() {
-    ctx.activeComp.controller();
-};
+    return {
+        showMenu: function() {
+            $('.overlay').fadeIn();
+            $('.menu').animate({
+                'left': '0'
+            });
+            ctx.menuVisible = !ctx.menuVisible;
+        },
+        hideMenu: function() {
+            $('.overlay').fadeOut();
+            $('.menu').animate({
+                'left': '-300px'
+            });
+            ctx.menuVisible = !ctx.menuVisible;
+        },
+        toggleMenu: function() {
+            if (ctx.menuVisible) {
+                template.controller().hideMenu();
+            } else {
+                template.controller().showMenu();
+            }
+        },
+        dispatcher: function(pageName) {
+            ctx.activePage = pageName;
+            $('title').text('SlackR | ' + ctx.activePage);
+
+            ctx.activeView = $.grep(menuItems, function(item) {
+                return item.name == ctx.activePage;
+            })[0].component.view;
+
+            if (ctx.menuVisible) {
+                template.controller().hideMenu();
+            }
+        }
+    };
+}
 
 template.view = function() {
     if (ctx.profile) {
         return [
             m('h1.header', {
-                onclick: util.hideMenu
+                onclick: template.controller().hideMenu
             }, ctx.activePage),
             m('span.menuButton', {
                 class: 'glyphicon glyphicon-menu-hamburger',
-                onclick: util.toggleMenu
+                onclick: template.controller().toggleMenu
             }),
             m('div.overlay', {
-                onclick: util.hideMenu
+                onclick: template.controller().hideMenu
             }),
             m('div.content', [
-                ctx.activeComp.view()
+                ctx.activeView()
             ]),
             m('div.menu', [
                 m('div.profile', [
@@ -70,7 +104,9 @@ template.view = function() {
                 }, [
                     menuItems.map(function(item, index) {
                         return m('li', {
-                                onclick: util.dispatcher,
+                                onclick: function() {
+                                    template.controller().dispatcher(item.name);
+                                },
                                 role: 'presentation',
                                 class: (item.name == ctx.activePage ? 'active' : '')
                             },
@@ -97,6 +133,6 @@ template.view = function() {
             )
         ];
     }
-};
+}
 
 m.mount(document.body, template);

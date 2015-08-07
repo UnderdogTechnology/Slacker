@@ -5,4 +5,4 @@ var loginComp = {
             m('p', 'This is a login page')
         ];
     }
-};
+}

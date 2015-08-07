@@ -5,4 +5,4 @@ var inboxComp = {
             m('p', 'This is an inbox page')
         ];
     }
-};
+}

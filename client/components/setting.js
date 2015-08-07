@@ -5,4 +5,4 @@ var settingComp = {
             m('p', 'This is a setting page')
         ];
     }
-};
+}

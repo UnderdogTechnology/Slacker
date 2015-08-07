@@ -1,21 +1,5 @@
-var checkins = [{
-    location: 'here',
-    username: 'divide100',
-    date: '14/06/2015',
-    distance: 5,
-    rating: 4
-}, {
-    location: 'there',
-    username: 'fuzetsu490',
-    date: '14/06/2015',
-    distance: 10,
-    rating: 3
-}];
-
 var homeComp = {
-    controller: function() {
-        mapComp.controller();
-    },
+    controller: function() {},
     view: function() {
         return [
             m('div.topBox', [
@@ -26,8 +10,12 @@ var homeComp = {
             ]),
             m('table.table',
                 m('tbody',
-                    checkins.map(function(item, index) {
-                        return m('tr', [
+                    checkinComp.controller().checkinList.map(function(item, index) {
+                        return m('tr', {
+                            onclick: (function() {
+                                mapComp.controller().setFocus(checkinComp.controller().getCheckinById(item.id).location);
+                            })
+                        }, [
                             m('td.listBox', item.location),
                             m('td.details', [
                                 m('div', util.formatter('Checked in by {username} on {date}', item)),
