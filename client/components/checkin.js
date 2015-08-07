@@ -1,31 +1,27 @@
-var checkinComp = {
-    controller: function() {
-        return {
-            checkinList: [{
-                id: '1',
-                location: new google.maps.LatLng(45.4417885, -75.78539030000002),
-                username: 'divide100',
-                date: '14/06/2015',
-                distance: 5,
-                rating: 4
-            }, {
-                id: '2',
-                location: new google.maps.LatLng(44.4417885, -71.78539030000002),
-                username: 'fuzetsu490',
-                date: '14/06/2015',
-                distance: 10,
-                rating: 3
-            }],
-            getCheckinById: function(id) {
-                return $.grep(checkinComp.controller().checkinList, function(item) {
-                    return item.id == id;
-                })[0];
-            }
-        };
-    },
-    view: function() {
-        return [
-            m('p', 'This is a checkin page')
-        ];
+system.cmp.checkin = {
+    controller: function(args) {},
+    view: function(ctrl, args) {
+        // TODO: what's the distinction between checkin and the checkinlist component on the home page, we probably need to create a separate one
+        args.checkinList = args.checkinList || system.model.checkin.find();
+        return m('table.table',
+            m('tbody',
+                args.checkinList.map(function(item, index) {
+                    return m('tr', {
+                        onclick: function() {
+                            args.location(item.location);
+                        }
+                    }, [
+                        m('td.listBox', item.location),
+                        m('td.details', [
+                            m('div', util.formatter('Checked in by {username} on {date}', item)),
+                            m('div', [
+                                m('span.pull-left', util.formatter('{distance}km away', item)),
+                                m('span.pull-right', util.convertRating(item.rating))
+                            ])
+                        ])
+                    ]);
+                })
+            )
+        );
     }
 };

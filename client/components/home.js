@@ -1,33 +1,22 @@
-var homeComp = {
-    controller: function() {},
-    view: function() {
-        return [
+system.cmp.home = {
+    controller: function(args) {
+        return {
+            location: m.prop(null),
+            checkinList: system.model.checkin.find()
+        };
+    },
+    view: function(ctrl, args) {
+        return m('div.home', [
             m('div.topBox', [
-                mapComp.view(),
-                m('button.btn', {
-                    class: 'btn-primary'
-                }, 'Check In')
+                m.component(system.cmp.map, {
+                    location: ctrl.location
+                }),
+                m('button.btn.btn-primary', 'Check In')
             ]),
-            m('table.table',
-                m('tbody',
-                    checkinComp.controller().checkinList.map(function(item, index) {
-                        return m('tr', {
-                            onclick: (function() {
-                                mapComp.controller().setFocus(checkinComp.controller().getCheckinById(item.id).location);
-                            })
-                        }, [
-                            m('td.listBox', item.location),
-                            m('td.details', [
-                                m('div', util.formatter('Checked in by {username} on {date}', item)),
-                                m('div', [
-                                    m('span.pull-left', util.formatter('{distance}km away', item)),
-                                    m('span.pull-right', util.convertRating(item.rating))
-                                ])
-                            ])
-                        ]);
-                    })
-                )
-            )
-        ];
+            m.component(system.cmp.checkin, {
+                checkinList: ctrl.checkinList,
+                location: ctrl.location
+            })
+        ]);
     }
 };

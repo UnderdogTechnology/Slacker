@@ -1,7 +1,8 @@
-var profileComp = {
+system.cmp.profile = {
     controller: function() {},
     view: function() {
-        return [
+        var ctx = system.ctx;
+        return m('div.profile', [
             m('div.topBox', [
                 m('img', {
                     src: ctx.profile.pic
@@ -45,6 +46,6 @@ var profileComp = {
                     }, 'Update')
                 ])
             ])
-        ];
+        ]);
     }
-}
+};

@@ -211,7 +211,7 @@ form .btn-group .btn-primary {
     border-right: none !important;
 }
 
-.topBox #map {
+.topBox .map {
     height: 100%;
     width: 100%;
 }

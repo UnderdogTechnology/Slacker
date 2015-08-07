@@ -1,8 +1,6 @@
-var inboxComp = {
+system.cmp.inbox = {
     controller: function() {},
     view: function() {
-        return [
-            m('p', 'This is an inbox page')
-        ];
+        return m('p', 'This is an inbox page');
     }
-}
+};
