@@ -1,26 +1,18 @@
 system.cmp.nav = {
     controller: function(args) {
-        var menuVisible = false;
-        // TODO: consider removing the jQuery dep, only used for animation currently
+        var menuVisible = m.prop(false);
         var ctrl = {
+            menuVisible: menuVisible,
             showMenu: function() {
-                if (menuVisible) return;
-                $('.overlay').fadeIn();
-                $('.menu').animate({
-                    'left': '0'
-                });
-                menuVisible = true;
+                if (menuVisible()) return;
+                menuVisible(true);
             },
             hideMenu: function() {
-                if (!menuVisible) return;
-                $('.overlay').fadeOut();
-                $('.menu').animate({
-                    'left': '-300px'
-                });
-                menuVisible = false;
+                if (!menuVisible()) return;
+                menuVisible(false);
             },
             toggleMenu: function() {
-                if (menuVisible) {
+                if (menuVisible()) {
                     ctrl.hideMenu();
                 } else {
                     ctrl.showMenu();
@@ -33,19 +25,22 @@ system.cmp.nav = {
         var ctx = system.ctx;
         return m('div.slack-nav', [
             m('div.overlay', {
-                onclick: ctrl.hideMenu
+                onclick: ctrl.hideMenu,
+                hidden: !ctrl.menuVisible()
             }),
-            m('span.menuButton.glyphicon.glyphicon-menu-hamburger', {
+            m('span.menuButton.fa.fa-bars', {
                 onclick: ctrl.toggleMenu
             }),
-            m('div.menu', [
+            m('div.menu', {
+                class: ctrl.menuVisible() ? 'menu-visible' : ''
+            }, [
                 m('div.profile', [
                     m('img.profilePic', {
                         src: (ctx.profile.pic ? ctx.profile.pic : './images/ProfilePic.png')
                     }),
                     m('span.profileName', (ctx.profile.actualName ? ctx.profile.actualName : ctx.profile.userName))
                 ]),
-                m('ul.nav.nav-pills.nav-stacked', [
+                m('ul', [
                     args.items.map(function(item, index) {
                         return m('li', {
                                 role: 'presentation',

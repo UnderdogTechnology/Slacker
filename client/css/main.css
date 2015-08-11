@@ -11,7 +11,7 @@
     line-height: 45px;
     text-align: center;
     background: #F0592B;
-    border: 1px solid #B54132;
+    border-bottom: 1px solid #B54132;
     color: #fff;
     text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
     margin: 0;
@@ -35,9 +35,17 @@
 *     CONTENT    *
 *****************/
 
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
 .content {
     position: absolute;
-    top: 45px;
+    top: 46px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -49,19 +57,22 @@
 *****************/
 
 .menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     min-height: 400px;
     left: -300px;
-    font-size: 17px;
+    font-size: 17px !important;
     width: 250px;
     background: #fff;
     border-right: 1px solid #B54132;
     z-index: 9999;
+    transition: 300ms left;
 }
 
 .menu ul {
+    padding:0;
+    list-style: none;
     border-top: 1px solid #B54132;
 }
 
@@ -94,7 +105,6 @@
 
 .menu .badge {
     float: right;
-    margin: 4px;
     background: #F0592B;
 }
 
@@ -112,35 +122,105 @@
     cursor: pointer;
 }
 
+.menu li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
 .menu li.active a,
 .menu li.active a:hover {
+    color: #fff;
     background: #F0592B;
     text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
 }
 
 .menu li.active .badge {
     color: #F0592B;
+    background: #fff;
     text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
     border: 1px solid #B54132;
 }
 
-.menu .nav .glyphicon:before {
+.menu .fa:before {
     margin: 30px;
 }
 
+.menu-visible {
+    left: 0 !important;
+}
+
+/****************
+*  NOTIFICATION *
+*****************/
+
+.notification {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+    z-index: 9999;
+}
+
+.notification .dismiss{
+    float:right;
+}
+
+.notification.error{
+    background: #f2dede;
+    border-top: 1px solid #ebccd1;
+    color: #a94442;
+}
+
+.notification.warning{
+    background: #fcf8e3;
+    border-top: 1px solid #faebcc;
+    color: #8a6d3b;
+}
+
+.notification.info{
+    background: #d9edf7;
+    border-top: 1px solid #bce8f1;
+    color: #31708f;
+}
+
+.notification.success{
+    background: #dff0d8;
+    border-top: 1px solid #d6e9c6;
+    color: #3c763d;
+}
 
 /****************
 *     COMMON    *
 *****************/
 
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     min-height: 400px;
-    display: none;
     background-color: rgba(0, 0, 0, .65);
     background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
     z-index: 9997;
@@ -166,30 +246,10 @@
     padding: 4px !important;
 }
 
-form {
-    display: block;
-    margin: 10px auto;
-    width: 100%;
-    padding: 5px;
-}
-
-form .btn-group {
-    width: 100%;
-}
-
-form .btn-group .btn-primary {
-    float: right;
-}
-
-.btn,
-.form-control {
-    border-radius: 0;
-}
 
 .btn-primary {
-    background: #F0592B !important;
-    text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132 !important;
-    border: 1px solid #B54132 !important;
+    color: #fff;
+    background: #F0592B;
 }
 
 .topBox {
@@ -206,7 +266,7 @@ form .btn-group .btn-primary {
     height: 100%;
 }
 
-.topBox .btn {
+.topBox button {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -219,6 +279,15 @@ form .btn-group .btn-primary {
     width: 100%;
 }
 
+/****************
+*    Profile    *
+*****************/
+
+.profile-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 1.5em;
+}
 
 /****************
 *    H:520px;   *
@@ -243,22 +312,5 @@ form .btn-group .btn-primary {
         position: absolute;
         bottom: 0;
         width: 95%;
-    }
-    form {
-        width: 400px;
-    }
-    form label {
-        width: 180px;
-        margin-right: 5px;
-        text-align: right;
-    }
-    .form-control {
-        width: 180px;
-        float: right;
-    }
-    form .btn-group {
-        display: block;
-        width: 175px;
-        margin: 50px auto;
     }
 }

@@ -15,7 +15,7 @@ system.cmp.checkinList = {
                             m('div', util.formatter('Checked in by {username} on {date}', item)),
                             m('div', [
                                 m('span.pull-left', util.formatter('{distance}km away', item)),
-                                m('span.pull-right', util.convertRating(item.rating))
+                                m('span.pull-right', mutil.convertRating(item.rating))
                             ])
                         ])
                     ]);

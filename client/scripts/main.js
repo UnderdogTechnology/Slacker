@@ -1,28 +1,21 @@
 var system = window.system = window.system || {};
-
 var util = {
+    q: function(q, c) {
+        return (c || document).querySelector(q);
+    },
+    qq: function(q, c) {
+        return [].slice.call((c || document).querySelectorAll(q));
+    },
     checkin: function() {
 
     },
-    formatter: function(string, arr) {
-        $.each(arr, function(index, value) {
-            while (string.match('\{' + index + '\}')) {
-                string = string.replace('{' + index + '}', value);
+    formatter: function(string, obj) {
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                string = string.replace('{' + key + '}', obj[key], 'g');
             }
-        });
-        return string;
-    },
-    convertRating: function(rating) {
-        var i = 0,
-            arr = [];
-
-        while (i < 5) {
-            arr[arr.length] = m('i', {
-                class: (i < rating ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty')
-            });
-            i++;
         }
-        return arr;
+        return string;
     },
     findModel: function(list, id) {
         if (id) {
@@ -48,13 +41,36 @@ var util = {
         return obj;
     }
 };
+var mutil = {
+        convertRating: function(rating) {
+        var i = 0,
+            arr = [];
+
+        while (i < 5) {
+            arr[arr.length] = m('i', {
+                class: (i < rating ? 'fa fa-star' : 'fa fa-star-o')
+            });
+            i++;
+        }
+        return arr;
+    },
+    formGroup: function(children) {
+        return m('div.pure-control-group', children);
+    },
+    formControls: function(children) {
+        return m('div.pure-controls', children);
+    },
+    icon: function(name, children) {
+        return m('i.fa.fa-' + name, children);
+    }
+};
 (function() {
 
     var cmp = system.cmp = {};
     var model = system.model = {};
 
     // the components and models that will be loaded (individual js files)
-    var components = ['nav', 'calculator', 'checkinList', 'checkin', 'donate', 'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting'];
+    var components = ['nav', 'notification', 'calculator', 'checkinList', 'checkin', 'donate', 'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting'];
     var models = ['checkinList'];
 
     var ctx = system.ctx = {
@@ -98,42 +114,42 @@ var util = {
         return [{
             name: 'Home',
             url: '/',
-            icon: 'glyphicon glyphicon-home',
+            icon: 'fa fa-home',
             component: cmp.home
         }, {
             name: 'Check-in',
             url: '/checkin',
-            icon: 'glyphicon glyphicon-ok',
+            icon: 'fa fa-check',
             component: cmp.checkin
         }, {
             name: 'Meetups',
             url: '/meetups',
-            icon: 'glyphicon glyphicon-road',
+            icon: 'fa fa-road',
             component: cmp.meetup
         }, {
             name: 'Calculator',
             url: '/calculator',
-            icon: 'glyphicon glyphicon-th',
+            icon: 'fa fa-calculator',
             component: cmp.calculator
         }, {
             name: 'Inbox',
             url: '/inbox',
-            icon: 'glyphicon glyphicon-envelope',
+            icon: 'fa fa-envelope',
             component: cmp.inbox
         }, {
             name: 'Profile',
             url: '/profile',
-            icon: 'glyphicon glyphicon-user',
+            icon: 'fa fa-user',
             component: cmp.profile
         }, {
             name: 'Settings',
             url: '/settings',
-            icon: 'glyphicon glyphicon-cog',
+            icon: 'fa fa-cogs',
             component: cmp.setting
         }, {
             name: 'Donate',
             url: '/donate',
-            icon: 'glyphicon glyphicon-gift',
+            icon: 'fa fa-gift',
             component: cmp.donate
         }];
     };
