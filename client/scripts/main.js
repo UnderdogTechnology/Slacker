@@ -54,15 +54,15 @@ var util = {
     var model = system.model = {};
 
     // the components and models that will be loaded (individual js files)
-    var components = ['nav', 'calculator', 'checkin', 'donate', 'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting'];
-    var models = ['checkin'];
+    var components = ['nav', 'calculator', 'checkinList', 'checkin', 'donate', 'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting'];
+    var models = ['checkinList'];
 
     var ctx = system.ctx = {
         profile: {
             location: null,
             actualName: 'David Magee',
             userName: 'divide100',
-            pic: './images/ProfilePic.png',
+            pic: './images/male.png',
             email: 'magee.david1994@gmail.com',
             bio: 'I like turtles',
             notifications: {
@@ -101,8 +101,8 @@ var util = {
             icon: 'glyphicon glyphicon-home',
             component: cmp.home
         }, {
-            name: 'Check-ins',
-            url: '/checkins',
+            name: 'Check-in',
+            url: '/checkin',
             icon: 'glyphicon glyphicon-ok',
             component: cmp.checkin
         }, {
@@ -151,8 +151,10 @@ var util = {
         m.route.mode = 'hash';
         // add any extra non-core routes
         util.extend(routes, {
-            '/profile/:name': applyLayout('Profile', cmp.profile)
+            '/profile/:name': applyLayout('Profile', cmp.profile),
+            '/checkinList': applyLayout('Check-ins', cmp.checkisList)
         });
+
         m.route(document.body, '/', routes);
     };
 

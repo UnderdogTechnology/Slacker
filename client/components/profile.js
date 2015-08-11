@@ -7,9 +7,7 @@ system.cmp.profile = {
                 m('img', {
                     src: ctx.profile.pic
                 }),
-                m('button.btn', {
-                    class: 'btn-primary'
-                }, 'Change')
+                m('button.btn.btn-primary', 'Change')
             ]),
             m('form', [
                 m('div.form-group', [
@@ -39,11 +37,9 @@ system.cmp.profile = {
                         placeholder: 'Bio'
                     }, ctx.profile.bio)
                 ]),
-                m('div.btn-group', [
+                m('div.btn-group.action-btns', [
                     m('button.btn', 'Cancel'),
-                    m('button.btn', {
-                        class: 'btn-primary'
-                    }, 'Update')
+                    m('button.btn.btn-primary', 'Update')
                 ])
             ])
         ]);

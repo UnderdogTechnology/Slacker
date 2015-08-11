@@ -4,9 +4,11 @@ system.cmp.map = {
         var ctrl = {
             map: m.prop(null),
             markerDetailList: [{
-                position: new google.maps.LatLng(45.4417885, -75.78539030000002)
+                position: new google.maps.LatLng(45.4417885, -75.78539030000002),
+                icon: './images/marker.png'
             }, {
-                position: new google.maps.LatLng(44.4417885, -71.78539030000002)
+                position: new google.maps.LatLng(44.4417885, -71.78539030000002),
+                icon: './images/marker.png'
             }, {
                 position: new google.maps.LatLng(48.4417885, -73.78539030000002)
             }, {
@@ -43,7 +45,12 @@ system.cmp.map = {
                     var marker = new google.maps.Marker({
                         position: detail.position,
                         map: ctrl.map(),
-                        icon: detail.icon,
+                        icon: detail.icon ? {
+                            url: detail.icon,
+                            scaledSize: new google.maps.Size(30,30),
+                            origin: new google.maps.Point(0,0),
+                            anchor: new google.maps.Point(0,30)
+                        } : null,
                         title: detail.title
                     });
                 });

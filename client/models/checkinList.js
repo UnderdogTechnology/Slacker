@@ -1,4 +1,4 @@
-system.model.checkin = {
+system.model.checkinList = {
     find: function(id) {
         var list = [{
             id: '1',
