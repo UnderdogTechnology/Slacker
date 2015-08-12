@@ -60,9 +60,9 @@ system.cmp.nav = {
                                 href: item.url,
                                 config: ctrl.changeRoute
                             }, [
-                                m('span.itemName', {
-                                    class: item.icon
-                                }, item.name), (ctx.profile.notifications && ctx.profile.notifications[item.name] ? m('span.badge', ctx.profile.notifications[item.name]) : null)
+                                m('i.nav-icon', {class: item.icon}),
+                                m('span.itemName', item.name), 
+                                ctx.profile.notifications && ctx.profile.notifications[item.name] ? m('span.badge', ctx.profile.notifications[item.name]) : ''
                             ])
                         );
                     }),

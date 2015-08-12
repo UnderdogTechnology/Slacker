@@ -108,6 +108,7 @@ body {
 
 .menu .badge {
     float: right;
+    margin: 3px 10px;
     background: #F0592B;
 }
 
@@ -128,7 +129,7 @@ body {
 .menu li>a {
     position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 0;
 }
 
 .menu li.active a,
@@ -145,8 +146,9 @@ body {
     border: 1px solid #B54132;
 }
 
-.menu .fa:before {
-    margin: 30px;
+.menu .fa {
+    width: 60px;
+    text-align: center;
 }
 
 .menu-visible {
@@ -323,7 +325,7 @@ a {
 
 
 /****************
-*    Profile    *
+*    Profile and Checkin    *
 *****************/
 
 .profile-form,
@@ -331,6 +333,10 @@ a {
     max-width: 500px;
     margin: auto;
     padding: 1.5em;
+}
+
+.checkin-form .fa {
+    vertical-align: middle;
 }
 
 
