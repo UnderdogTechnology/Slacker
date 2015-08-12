@@ -1,10 +1,14 @@
 system.cmp.checkinList = {
-    controller: function(args) {},
+    controller: function(args) {
+        return {
+            checkinList: args.checkinList || system.model.checkinList.find()
+        };
+    },
     view: function(ctrl, args) {
-        args.checkinList = args.checkinList || system.model.checkinList.find();
+        var checkinList = ctrl.checkinList();
         return m('table.pure-table.pure-table-bordered',
             m('tbody',
-                args.checkinList.map(function(item, index) {
+                checkinList.map(function(item, index) {
                     return m('tr', {
                         onclick: function() {
                             args.location(item.location);

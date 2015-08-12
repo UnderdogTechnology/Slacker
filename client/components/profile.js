@@ -1,11 +1,15 @@
 system.cmp.profile = {
-    controller: function(args) {},
+    controller: function(args) {
+        return {
+            me: args.me || system.model.profile.me(),
+        };
+    },
     view: function(ctrl, args) {
-        args.me = args.me || system.model.profile.me;
+        var me = ctrl.me();
         return m('div.profile', [
             m('div.topBox', [
                 m('img', {
-                    src: args.me.pic()
+                    src: me.pic()
                 }),
                 m('a.btn-primary.pure-button', 'Change')
             ]),
@@ -14,28 +18,28 @@ system.cmp.profile = {
                     m('label', 'Username'),
                     m('input[type="text"].form-control', {
                         placeholder: 'Username',
-                        value: args.me.userName()
+                        value: me.userName()
                     })
                 ]),
                 mutil.formGroup([
                     m('label', 'Actual Name'),
                     m('input[type="text"].form-control', {
                         placeholder: 'Actual Name',
-                        value: args.me.actualName()
+                        value: me.actualName()
                     })
                 ]),
                 mutil.formGroup([
                     m('label', 'Email Address'),
                     m('input[type="email"].form-control', {
                         placeholder: 'Email Address',
-                        value: args.me.email()
+                        value: me.email()
                     })
                 ]),
                 mutil.formGroup([
                     m('label', 'Bio'),
                     m('textarea.form-control', {
                         placeholder: 'Bio'
-                    }, args.me.bio())
+                    }, me.bio())
                 ]),
                 mutil.formControls([
                     m('button.pure-button', 'Cancel'),

@@ -33,6 +33,7 @@ system.cmp.nav = {
     },
     view: function(ctrl, args) {
         var ctx = system.ctx;
+        var items = args.items();
         return m('div.slack-nav', [
             m('div.overlay', {
                 onclick: ctrl.hideMenu,
@@ -51,7 +52,7 @@ system.cmp.nav = {
                     m('span.profileName', (ctx.profile.actualName ? ctx.profile.actualName : ctx.profile.userName))
                 ]),
                 m('ul', [
-                    args.items.map(function(item, index) {
+                    items.map(function(item, index) {
                         return m('li', {
                                 role: 'presentation',
                                 class: (item.name == args.active ? 'active' : '')

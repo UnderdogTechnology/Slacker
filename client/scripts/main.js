@@ -27,9 +27,9 @@ var util = {
                     return true;
                 }
             });
-            return list[index];
+            return m.prop(list[index]);
         } else {
-            return list;
+            return m.prop(list);
         }
     },
     extend: function(obj, newProps) {
@@ -113,7 +113,7 @@ var mutil = {
     };
 
     var loadNavItems = function() {
-        return [{
+        return m.prop([{
             name: 'Home',
             url: '/',
             icon: 'fa fa-home fa-lg',
@@ -153,7 +153,7 @@ var mutil = {
             url: '/donate',
             icon: 'fa fa-gift fa-lg',
             component: cmp.donate
-        }];
+        }]);
     };
 
     var loadRoutes = function() {
@@ -161,7 +161,7 @@ var mutil = {
         var navItems = loadNavItems();
         // apply the layout to each component in the nav and create the core route object
         var routes = {};
-        navItems.forEach(function(item) {
+        navItems().forEach(function(item) {
             item.component = applyLayout(item.name, navItems, item.component);
             routes[item.url] = item.component;
         });
