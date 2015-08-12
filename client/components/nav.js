@@ -4,11 +4,9 @@ system.cmp.nav = {
         var ctrl = {
             menuVisible: menuVisible,
             showMenu: function() {
-                if (menuVisible()) return;
                 menuVisible(true);
             },
             hideMenu: function() {
-                if (!menuVisible()) return;
                 menuVisible(false);
             },
             toggleMenu: function() {
@@ -18,6 +16,18 @@ system.cmp.nav = {
                     ctrl.showMenu();
                 }
             },
+            changeRoute: function(elem, isInit, ctx) {
+                if (!isInit) {
+                    elem.onclick = function(evt) {
+                        // TODO: not the cleanest solution, look into using css transitionend event
+                        evt.preventDefault();
+                        util.q('.menu').classList.remove('menu-visible');
+                        setTimeout(function() {
+                            m.route(elem.getAttribute('href'));
+                        }, 300);
+                    };
+                }
+            }
         };
         return ctrl;
     },
@@ -48,7 +58,7 @@ system.cmp.nav = {
                             },
                             m('a', {
                                 href: item.url,
-                                config: m.route
+                                config: ctrl.changeRoute
                             }, [
                                 m('span.itemName', {
                                     class: item.icon
