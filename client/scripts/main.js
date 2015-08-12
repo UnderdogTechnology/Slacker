@@ -42,7 +42,7 @@ var util = {
     }
 };
 var mutil = {
-        convertRating: function(rating) {
+    convertRating: function(rating) {
         var i = 0,
             arr = [];
 
@@ -71,7 +71,7 @@ var mutil = {
 
     // the components and models that will be loaded (individual js files)
     var components = ['nav', 'notification', 'calculator', 'checkinList', 'checkin', 'donate', 'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting'];
-    var models = ['checkinList'];
+    var models = ['checkinList', 'profile'];
 
     var ctx = system.ctx = {
         profile: {
@@ -94,7 +94,9 @@ var mutil = {
                 active: title,
                 items: nav
             }),
-            m('div.content', content)
+            m('div.content', {
+                overflow: (m.component(cmp.nav).controller().menuVisible() ? 'none' : 'scroll')
+            }, content)
         ]);
     };
 
@@ -114,42 +116,42 @@ var mutil = {
         return [{
             name: 'Home',
             url: '/',
-            icon: 'fa fa-home',
+            icon: 'fa fa-home fa-lg',
             component: cmp.home
         }, {
             name: 'Check-in',
             url: '/checkin',
-            icon: 'fa fa-check',
+            icon: 'fa fa-check fa-lg',
             component: cmp.checkin
         }, {
             name: 'Meetups',
             url: '/meetups',
-            icon: 'fa fa-road',
+            icon: 'fa fa-road fa-lg',
             component: cmp.meetup
         }, {
             name: 'Calculator',
             url: '/calculator',
-            icon: 'fa fa-calculator',
+            icon: 'fa fa-calculator fa-lg',
             component: cmp.calculator
         }, {
             name: 'Inbox',
             url: '/inbox',
-            icon: 'fa fa-envelope',
+            icon: 'fa fa-envelope fa-lg',
             component: cmp.inbox
         }, {
             name: 'Profile',
             url: '/profile',
-            icon: 'fa fa-user',
+            icon: 'fa fa-user fa-lg',
             component: cmp.profile
         }, {
             name: 'Settings',
             url: '/settings',
-            icon: 'fa fa-cogs',
+            icon: 'fa fa-cogs fa-lg',
             component: cmp.setting
         }, {
             name: 'Donate',
             url: '/donate',
-            icon: 'fa fa-gift',
+            icon: 'fa fa-gift fa-lg',
             component: cmp.donate
         }];
     };

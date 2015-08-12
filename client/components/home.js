@@ -11,7 +11,7 @@ system.cmp.home = {
                 m.component(system.cmp.map, {
                     location: ctrl.location
                 }),
-                m('a.btn.btn-primary', {
+                m('a.pure-button.btn-primary', {
                     href: '/checkin',
                     config: m.route
                 }, 'Check In')

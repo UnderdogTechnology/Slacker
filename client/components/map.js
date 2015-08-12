@@ -32,8 +32,8 @@ system.cmp.map = {
             getCurLocation: function(cb) {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function(position) {
-                        ctx.profile.location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                        cb(ctx.profile.location);
+                        system.ctx.profile.location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                        cb(system.ctx.profile.location);
                     }, function() {});
                 }
             },

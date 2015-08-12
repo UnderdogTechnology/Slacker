@@ -2,7 +2,7 @@ system.cmp.checkinList = {
     controller: function(args) {},
     view: function(ctrl, args) {
         args.checkinList = args.checkinList || system.model.checkinList.find();
-        return m('table.table',
+        return m('table.pure-table.pure-table-bordered',
             m('tbody',
                 args.checkinList.map(function(item, index) {
                     return m('tr', {

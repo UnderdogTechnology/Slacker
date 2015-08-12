@@ -3,10 +3,10 @@
 *****************/
 
 .header {
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: -1px;
-    right: 0px;
+    left: 0;
+    right: 0;
     height: 45px;
     line-height: 45px;
     text-align: center;
@@ -15,7 +15,6 @@
     color: #fff;
     text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
     margin: 0;
-    font-family: Haettenschweiler;
     font-weight: bold;
 }
 
@@ -36,7 +35,7 @@
 *****************/
 
 body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
@@ -44,9 +43,10 @@ body {
 }
 
 .content {
-    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
     top: 46px;
-    left: 0;
+    left:0;
     right: 0;
     bottom: 0;
 }
@@ -57,7 +57,9 @@ body {
 *****************/
 
 .menu {
-    position: fixed;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
     top: 0;
     bottom: 0;
     min-height: 400px;
@@ -71,28 +73,29 @@ body {
 }
 
 .menu ul {
-    padding:0;
+    padding: 0;
     list-style: none;
     border-top: 1px solid #B54132;
 }
 
 .menu .profile {
-    height: 85px;
+    padding: 5px;
+    height: 70px;
     width: 100%;
     color: #B54132;
     overflow: none;
 }
 
 .menu .profilePic {
+    margin-right:10px;
     height: 75px;
     width: 75px;
     border: 2px solid #B54132;
     border-radius: 50%;
-    margin: 5px;
 }
 
 .menu .profileName {
-    margin: 5px;
+    width: 10px;
     vertical-align: bottom;
 }
 
@@ -150,6 +153,20 @@ body {
     left: 0 !important;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 400px;
+    background-color: rgba(0, 0, 0, .65);
+    background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
+    z-index: 9997;
+    color: white;
+}
+
+
 /****************
 *  NOTIFICATION *
 *****************/
@@ -164,33 +181,34 @@ body {
     z-index: 9999;
 }
 
-.notification .dismiss{
-    float:right;
+.notification .dismiss {
+    float: right;
 }
 
-.notification.error{
+.notification.error {
     background: #f2dede;
     border-top: 1px solid #ebccd1;
     color: #a94442;
 }
 
-.notification.warning{
+.notification.warning {
     background: #fcf8e3;
     border-top: 1px solid #faebcc;
     color: #8a6d3b;
 }
 
-.notification.info{
+.notification.info {
     background: #d9edf7;
     border-top: 1px solid #bce8f1;
     color: #31708f;
 }
 
-.notification.success{
+.notification.success {
     background: #dff0d8;
     border-top: 1px solid #d6e9c6;
     color: #3c763d;
 }
+
 
 /****************
 *     COMMON    *
@@ -210,42 +228,9 @@ body {
     border-radius: 10px;
 }
 
-a{
+a {
     text-decoration: none;
 }
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    min-height: 400px;
-    background-color: rgba(0, 0, 0, .65);
-    background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9;
-    z-index: 9997;
-    color: white;
-}
-
-.table tbody {
-    border-bottom: 1px solid #ddd;
-}
-
-.table .listBox {
-    min-width: 70px;
-    height: 75px;
-    border-right: 1px solid #ddd;
-    display: none;
-}
-
-.table .details {
-    position: relative;
-}
-
-.table td {
-    padding: 4px !important;
-}
-
 
 .btn-primary {
     color: #fff;
@@ -266,12 +251,13 @@ a{
     height: 100%;
 }
 
-.topBox button {
+.topBox a {
     position: absolute;
     bottom: 0;
     right: 0;
-    border-bottom: none !important;
-    border-right: none !important;
+    border-top: 1px solid #d6e9c6;
+    border-right: 1px solid #d6e9c6;
+    border-radius: 0;
 }
 
 .topBox .map {
@@ -279,15 +265,74 @@ a{
     width: 100%;
 }
 
+.topBox .btn {
+    border-radius: 0;
+}
+
+
+/****************
+*      FORM     *
+*****************/
+
+.pure-control-group .pure-button {
+    width: 100%;
+    height: 75px;
+    background: #F0592B;
+    border: 1px solid #B54132;
+}
+
+.pure-control-group{
+    margin-top: 10px
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 0 !important;
+}
+
+.pure-control-group label {
+    font-weight: bold;
+}
+
+.pure-controls .btn-primary {
+    float: right;
+}
+
+
+/****************
+*     TABLE     *
+*****************/
+
+.pure-table {
+    width: 100%;
+}
+
+.pure-table tbody {
+    border-bottom: 1px solid #ddd;
+}
+
+.pure-table .listBox {
+    width: 75px;
+    height: 75px;
+    display: none;
+}
+
+.pure-table td {
+    padding: 4px !important;
+}
+
+
 /****************
 *    Profile    *
 *****************/
 
-.profile-form {
+.profile-form,
+.checkin-form {
     max-width: 500px;
     margin: auto;
     padding: 1.5em;
 }
+
 
 /****************
 *    H:520px;   *
@@ -312,5 +357,15 @@ a{
         position: absolute;
         bottom: 0;
         width: 95%;
+    }
+    .form-control {
+        width: 250px;
+    }
+    .pure-controls .btn-primary {
+        float: none;
+        margin-left: 10px;
+    }
+    .pure-control-group .pure-button {
+        width: 250px;
     }
 }
