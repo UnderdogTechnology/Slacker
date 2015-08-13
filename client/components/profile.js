@@ -13,7 +13,7 @@ system.cmp.profile = {
                 }),
                 m('a.btn-primary.pure-button', {
                     onclick: function() {
-                        util.q('#uploadPic').click()
+                        util.q('#uploadPic').click();
                     }
                 }, 'Change'),
                 m('input[type="file"].hidden#uploadPic', {

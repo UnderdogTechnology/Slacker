@@ -1,77 +1,21 @@
-var system = window.system = window.system || {};
-var util = {
-    q: function(q, c) {
-        return (c || document).querySelector(q);
-    },
-    qq: function(q, c) {
-        return [].slice.call((c || document).querySelectorAll(q));
-    },
-    checkin: function() {
-
-    },
-    formatter: function(string, obj) {
-        for (var key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                string = string.replace('{' + key + '}', obj[key], 'g');
-            }
-        }
-        return string;
-    },
-    findModel: function(list, id) {
-        if (id) {
-            id = id.toString();
-            var found = -1;
-            list.some(function(item, index) {
-                if (item.id === id) {
-                    found = index;
-                    return true;
-                }
-            });
-            return m.prop(list[index]);
-        } else {
-            return m.prop(list);
-        }
-    },
-    extend: function(obj, newProps) {
-        for (var prop in newProps) {
-            if (newProps.hasOwnProperty(prop)) {
-                obj[prop] = newProps[prop];
-            }
-        }
-        return obj;
-    }
-};
-var mutil = {
-    convertRating: function(rating) {
-        var i = 0,
-            arr = [];
-
-        while (i < 5) {
-            arr[arr.length] = m('i', {
-                class: (i < rating ? 'fa fa-star' : 'fa fa-star o')
-            });
-            i++;
-        }
-        return arr;
-    },
-    formGroup: function(children) {
-        return m('div.pure-control-group', children);
-    },
-    formControls: function(children) {
-        return m('div.pure-controls', children);
-    },
-    icon: function(name, children) {
-        return m('i.fa.fa-' + name, children);
-    }
-};
 (function() {
+
+    var system = window.system = window.system || {};
 
     var cmp = system.cmp = {};
     var model = system.model = {};
 
-    // the components and models that will be loaded (individual js files)
-    var components = ['nav', 'notification', 'calculator', 'checkinList', 'checkin', 'donate', 'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting'];
-    var models = ['checkinList', 'profile'];
+    var deps = {
+        // EXTRA
+        'scripts/': ['util'],
+        // MODELS
+        'models/': ['checkinList', 'profile'],
+        // COMPONENTS
+        'components/': [
+            'nav', 'notification', 'calculator', 'checkinList', 'checkin', 'donate',
+            'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting'
+        ]
+    };
 
     var ctx = system.ctx = {
         profile: {
@@ -177,11 +121,6 @@ var mutil = {
     };
 
     // load models, then components
-    system.loadModules('models/', models, function() {
-        system.loadModules('components/', components, function() {
-            ctx.activeCmp = cmp.home;
-            loadRoutes();
-        });
-    });
+    system.loadModules(deps, loadRoutes);
 
 }());
