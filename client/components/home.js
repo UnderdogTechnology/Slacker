@@ -7,7 +7,7 @@ system.cmp.home = {
     },
     view: function(ctrl, args) {
         return m('div.home', [
-            m('div.topBox.mapBox', [
+            m('div.top-box.map-box', [
                 m.component(system.cmp.map, {
                     location: ctrl.location
                 }),
@@ -16,10 +16,10 @@ system.cmp.home = {
                     config: m.route
                 }, 'Check In')
             ]),
-            m.component(system.cmp.checkinList, {
+            m('div.checkin-box', m.component(system.cmp.checkinList, {
                 checkinList: ctrl.checkinList,
                 location: ctrl.location
-            })
+            }))
         ]);
     }
 };

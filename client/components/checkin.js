@@ -5,7 +5,7 @@ system.cmp.checkin = {
         };
     },
     view: function(ctrl, args) {
-        return m('form.checkin-form.pure-form.pure-form-aligned', [
+        return m('form.checkin-form.center-form.pure-form.pure-form-aligned', [
             mutil.formGroup([
                 m('label', 'Rating'),
                 m('span.rating', [
@@ -20,7 +20,7 @@ system.cmp.checkin = {
             ]),
             mutil.formGroup([
                 m('label', 'Photo'),
-                m('button.pure-button', {
+                m('button.pure-button.form-control', {
                     type: 'button',
                     onclick: function() {
                         util.q('#uploadPic').click()

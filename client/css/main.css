@@ -1,4 +1,52 @@
 /****************
+*     OVERRIDE  *
+*****************/
+
+
+/* PURECSS */
+
+input,
+textarea,
+button {
+    border-radius: 0 !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pure-button {
+    background: #0BB287;
+    border: 1px solid #148264;
+    color: #fff;
+    padding: .6em 1em;
+}
+
+.pure-control-group label {
+    font-weight: bold;
+}
+
+.pure-controls *:not(:last-child) {
+    margin-right: 5px;
+}
+
+.pure-control-group {
+    margin-top: 10px;
+}
+
+
+/* FONTAWESOME */
+
+.fa-star {
+    color: #18B387;
+}
+
+.fa-star.o {
+    color: #BBE3DB;
+}
+
+
+/****************
 *     HEADER    *
 *****************/
 
@@ -16,6 +64,7 @@
     text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
     margin: 0;
     font-weight: bold;
+    font-size: 1.5em;
 }
 
 .menuButton {
@@ -38,15 +87,15 @@
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
+    /* font-size: 14px; */
+    /* line-height: 1.42857143; */
     color: #333;
     background-color: #fff;
 }
 
 .content {
     position: fixed;
-    overflow-y: scroll;
+    overflow-y: auto;
     top: 46px;
     left: 0;
     right: 0;
@@ -75,30 +124,23 @@ body {
 }
 
 .menu ul {
+    margin: 0;
     padding: 0;
     list-style: none;
     border-top: 1px solid #B54132;
 }
 
 .menu .profile {
-    padding: 5px;
-    height: 70px;
-    width: 100%;
+    padding: 7px;
     color: #B54132;
-    overflow: none;
+    overflow: hidden;
 }
 
 .menu .profilePic {
-    margin-right: 10px;
     height: 75px;
     width: 75px;
-    border: 2px solid #B54132;
+/*     border: 2px solid #B54132; */
     border-radius: 50%;
-}
-
-.menu .profileName {
-    width: 10px;
-    vertical-align: bottom;
 }
 
 .menu .logo {
@@ -110,32 +152,19 @@ body {
 
 .menu .badge {
     float: right;
-    margin: 3px 10px;
+    margin: 0 10px;
     background: #F0592B;
 }
 
-.menu .nav-stacked li+li {
-    margin: 0;
-}
-
-.menu li a,
-.menu li a:hover {
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-    color: #F0592B;
-    background: #fff;
-    cursor: pointer;
-}
-
-.menu li>a {
+.menu li a {
     position: relative;
     display: block;
     padding: 10px 0;
+    color: #F0592B;
+    cursor: pointer;
 }
 
-.menu li.active a,
-.menu li.active a:hover {
+.menu li.active a {
     color: #fff;
     background: #F0592B;
     text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
@@ -144,8 +173,8 @@ body {
 .menu li.active .badge {
     color: #F0592B;
     background: #fff;
-    text-shadow: -1px 0 #F0592B, 0 1px #F0592B, 1px 0 #F0592B, 0 -1px #F0592B;
-    border: #B54132;
+    /*     text-shadow: -1px 0 #F0592B, 0 1px #F0592B, 1px 0 #F0592B, 0 -1px #F0592B; */
+    text-shadow: none;
 }
 
 .menu .fa {
@@ -163,11 +192,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    min-height: 400px;
+    z-index: 9997;
     /*     background-color: rgba(0, 0, 0, .65); */
     /*     background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; */
-    z-index: 9997;
-    color: white;
 }
 
 
@@ -215,42 +242,50 @@ body {
 
 
 /****************
+*  CHECKIN LIST *
+*****************/
+
+.checkin-list .checkin-item {
+    padding: 10px;
+    border-bottom: 1px solid #B54132;
+    cursor: pointer;
+}
+
+.checkin-item > div {
+    display: inline-block;
+}
+
+.checkin-details {
+    width: 100%;
+}
+
+.checkin-item .checkin-location {
+    width: 75px;
+    height: 75px;
+    display: none;
+}
+
+
+/****************
 *      FORM     *
 *****************/
 
-.pure-control-group {
-    margin-top: 10px
+.center-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 5px 1.5em;
+}
+
+.center-form .pure-controls .btn-primary {
+    float: right;
+}
+
+.checkin-form .fa {
+    vertical-align: middle;
 }
 
 .form-control {
     width: 100%;
-    border-radius: 0 !important;
-}
-
-.pure-control-group label {
-    font-weight: bold;
-}
-
-.pure-button {
-    background: #0BB287;
-    border: 1px solid #B0FFEA;
-    border-radius: 0;
-    color: #fff;
-}
-
-.pure-controls,
-.pure-button {
-    height: 45px; 
-}
-
-.pure-controls .pure-button {
-    width: 125px;
-}
-
-.pure-control-group .pure-button {
-    width: 100%;
-    background: #F0592B;
-    border: 1px solid #B54132;
 }
 
 .btn-primary {
@@ -259,118 +294,53 @@ body {
     border: 1px solid #B54132;
 }
 
-.pure-controls .btn-primary {
-    float: right;
-}
-
-
-/****************
-*     TABLE     *
-*****************/
-
-.pure-table {
-    width: 100%;
-    border: none;
-}
-
-.pure-table tbody {
-    border-bottom: 1px solid #0BB287;
-}
-
-.pure-table .listBox {
-    width: 75px;
-    height: 75px;
-    display: none;
-}
-
-.pure-table td {
-    border-bottom: 1px solid #0BB287;
-    padding: 4px !important;
-}
-
-
-/****************
-*    Profile and Checkin    *
-*****************/
-
-.profile-form,
-.checkin-form {
-    max-width: 500px;
-    margin: auto;
-    padding: 5px 1.5em;
-}
-
-.checkin-form .fa {
-    vertical-align: middle;
-}
-
 
 /****************
 *     COMMON    *
 *****************/
 
-.star{
+.star {
     padding: 0 12px;
-}
-
-.fa-star {
-    color: #0BB287;
-}
-
-.fa-star.o{
-    color: #B0FFEA;
 }
 
 .badge {
     display: inline-block;
     min-width: 10px;
-    padding: 3px 7px;
-    font-size: 12px;
+    padding: 3px 10px;
+    font-size: 65%;
     font-weight: 700;
-    line-height: 1;
     color: #fff;
     text-align: center;
     white-space: nowrap;
-    vertical-align: middle;
     border-radius: 10px;
 }
 
-a {
-    text-decoration: none;
-}
-
-.topBox {
+.top-box {
     position: relative;
     height: 200px;
-    width: 100%;
     border-bottom: 1px solid #B54132;
     overflow: hidden;
     background: #BBE3DB;
 }
 
-.topBox img {
+.top-box img {
     display: block;
     margin: 0 auto;
     height: 100%;
 }
 
-.topBox a {
+.top-box a {
     position: absolute;
     bottom: 0;
     right: 0;
     border-bottom: none;
     border-right: none;
-    border-radius: 0;
-    height: 30px;
+    font-size: 90%;
 }
 
-.topBox .map {
+.top-box .map {
     height: 100%;
     width: 100%;
-}
-
-.topBox .btn {
-    border-radius: 0;
 }
 
 
@@ -386,49 +356,40 @@ a {
 
 
 /****************
-*    w:450px;   *
+*    w:480px;   *
 *****************/
 
-@media screen and (min-width: 450px) {
-    .mapBox {
+@media screen and (min-width: 480px) {
+    .map-box,
+    .checkin-box {
         position: absolute;
         top: 0;
-        left: 0;
         bottom: 0;
-        right: 50%;
         width: 50%;
         height: inherit;
+    }
+    .map-box {
+        left: 0;
         border-right: 1px solid #B54132;
     }
-    
-    .checkinList {
-        overflow: scroll;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 50%;
-        width: 50%;
-        height: inherit;
-
+    .map-box a {
+        left: 0;
+        right: initial;
     }
-    .checkinList td{
+    .checkin-box {
+        right: 0;
+        overflow: scroll;
+    }
+    .checkin-box td {
         border-left: none;
     }
     .table .listBox {
         display: block;
     }
-    .pure-form-aligned .pure-controls{
-        margin: 0;
-    }
     .form-control {
-        width: 250px;
+        width: 50%;
     }
-    .pure-controls .pure-button {
-        margin: 10px 20px;
-        width: 200px;
-    }
-    .pure-control-group .pure-button {
-        width: 250px;
+    .center-form .pure-controls .btn-primary {
+        float: none;
     }
 }

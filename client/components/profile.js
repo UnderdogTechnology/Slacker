@@ -7,7 +7,7 @@ system.cmp.profile = {
     view: function(ctrl, args) {
         var me = ctrl.me();
         return m('div.profile', [
-            m('div.topBox', [
+            m('div.top-box', [
                 m('img', {
                     src: me.pic()
                 }),
@@ -20,7 +20,7 @@ system.cmp.profile = {
                     accept: 'image/*'
                 })
             ]),
-            m('form.profile-form.pure-form.pure-form-aligned', [
+            m('form.profile-form.center-form.pure-form.pure-form-aligned', [
                 mutil.formGroup([
                     m('label', 'Username'),
                     m('input[type="text"].form-control', {

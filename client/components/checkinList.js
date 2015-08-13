@@ -6,16 +6,15 @@ system.cmp.checkinList = {
     },
     view: function(ctrl, args) {
         var checkinList = ctrl.checkinList();
-        return m('table.pure-table.pure-table-bordered.checkinList',
-            m('tbody',
+        return m('div.checkin-list',
                 checkinList.map(function(item, index) {
-                    return m('tr', {
+                    return m('div.checkin-item', {
                         onclick: function() {
                             args.location(item.location);
                         }
                     }, [
-                        m('td.listBox', item.location),
-                        m('td.details', [
+                        m('div.checkin-location', item.location),
+                        m('div.checkin-details', [
                             m('div', util.formatter('Checked in by {username} on {date}', item)),
                             m('div', [
                                 m('span.pull-left', util.formatter('{distance}km away', item)),
@@ -24,7 +23,6 @@ system.cmp.checkinList = {
                         ])
                     ]);
                 })
-            )
         );
     }
 };
