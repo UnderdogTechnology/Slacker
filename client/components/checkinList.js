@@ -6,7 +6,7 @@ system.cmp.checkinList = {
     },
     view: function(ctrl, args) {
         var checkinList = ctrl.checkinList();
-        return m('table.pure-table.pure-table-bordered',
+        return m('table.pure-table.pure-table-bordered.checkinList',
             m('tbody',
                 checkinList.map(function(item, index) {
                     return m('tr', {

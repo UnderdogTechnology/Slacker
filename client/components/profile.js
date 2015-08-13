@@ -11,28 +11,38 @@ system.cmp.profile = {
                 m('img', {
                     src: me.pic()
                 }),
-                m('a.btn-primary.pure-button', 'Change')
+                m('a.btn-primary.pure-button', {
+                    onclick: function() {
+                        util.q('#uploadPic').click()
+                    }
+                }, 'Change'),
+                m('input[type="file"].hidden#uploadPic', {
+                    accept: 'image/*'
+                })
             ]),
             m('form.profile-form.pure-form.pure-form-aligned', [
                 mutil.formGroup([
                     m('label', 'Username'),
                     m('input[type="text"].form-control', {
                         placeholder: 'Username',
-                        value: me.userName()
+                        value: me.userName(),
+                        onchange: m.withAttr('value', me.userName)
                     })
                 ]),
                 mutil.formGroup([
                     m('label', 'Actual Name'),
                     m('input[type="text"].form-control', {
                         placeholder: 'Actual Name',
-                        value: me.actualName()
+                        value: me.actualName(),
+                        onchange: m.withAttr('value', me.actualName)
                     })
                 ]),
                 mutil.formGroup([
                     m('label', 'Email Address'),
                     m('input[type="email"].form-control', {
                         placeholder: 'Email Address',
-                        value: me.email()
+                        value: me.email(),
+                        onchange: m.withAttr('value', me.email)
                     })
                 ]),
                 mutil.formGroup([
@@ -43,7 +53,10 @@ system.cmp.profile = {
                 ]),
                 mutil.formControls([
                     m('button.pure-button', 'Cancel'),
-                    m('button.pure-button.btn-primary', 'Update')
+                    m('button.pure-button.btn-primary', {onclick: function(e){
+                        //system.model.profile.me(me.userName());
+                        e.preventDefault();
+                    }}, 'Update')
                 ])
             ])
         ]);

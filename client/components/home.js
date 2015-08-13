@@ -7,7 +7,7 @@ system.cmp.home = {
     },
     view: function(ctrl, args) {
         return m('div.home', [
-            m('div.topBox', [
+            m('div.topBox.mapBox', [
                 m.component(system.cmp.map, {
                     location: ctrl.location
                 }),

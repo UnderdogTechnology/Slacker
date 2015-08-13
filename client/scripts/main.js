@@ -48,7 +48,7 @@ var mutil = {
 
         while (i < 5) {
             arr[arr.length] = m('i', {
-                class: (i < rating ? 'fa fa-star' : 'fa fa-star-o')
+                class: (i < rating ? 'fa fa-star' : 'fa fa-star o')
             });
             i++;
         }

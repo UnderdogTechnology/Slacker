@@ -27,7 +27,7 @@
     color: #fff;
     text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -48,7 +48,7 @@ body {
     position: fixed;
     overflow-y: scroll;
     top: 46px;
-    left:0;
+    left: 0;
     right: 0;
     bottom: 0;
 }
@@ -89,7 +89,7 @@ body {
 }
 
 .menu .profilePic {
-    margin-right:10px;
+    margin-right: 10px;
     height: 75px;
     width: 75px;
     border: 2px solid #B54132;
@@ -144,8 +144,8 @@ body {
 .menu li.active .badge {
     color: #F0592B;
     background: #fff;
-    text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
-    border: 1px solid #B54132;
+    text-shadow: -1px 0 #F0592B, 0 1px #F0592B, 1px 0 #F0592B, 0 -1px #F0592B;
+    border: #B54132;
 }
 
 .menu .fa {
@@ -164,8 +164,8 @@ body {
     right: 0;
     bottom: 0;
     min-height: 400px;
-/*     background-color: rgba(0, 0, 0, .65); */
-/*     background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; */
+    /*     background-color: rgba(0, 0, 0, .65); */
+    /*     background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; */
     z-index: 9997;
     color: white;
 }
@@ -215,8 +215,111 @@ body {
 
 
 /****************
+*      FORM     *
+*****************/
+
+.pure-control-group {
+    margin-top: 10px
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 0 !important;
+}
+
+.pure-control-group label {
+    font-weight: bold;
+}
+
+.pure-button {
+    background: #0BB287;
+    border: 1px solid #B0FFEA;
+    border-radius: 0;
+    color: #fff;
+}
+
+.pure-controls,
+.pure-button {
+    height: 45px; 
+}
+
+.pure-controls .pure-button {
+    width: 125px;
+}
+
+.pure-control-group .pure-button {
+    width: 100%;
+    background: #F0592B;
+    border: 1px solid #B54132;
+}
+
+.btn-primary {
+    color: #fff;
+    background: #F0592B;
+    border: 1px solid #B54132;
+}
+
+.pure-controls .btn-primary {
+    float: right;
+}
+
+
+/****************
+*     TABLE     *
+*****************/
+
+.pure-table {
+    width: 100%;
+    border: none;
+}
+
+.pure-table tbody {
+    border-bottom: 1px solid #0BB287;
+}
+
+.pure-table .listBox {
+    width: 75px;
+    height: 75px;
+    display: none;
+}
+
+.pure-table td {
+    border-bottom: 1px solid #0BB287;
+    padding: 4px !important;
+}
+
+
+/****************
+*    Profile and Checkin    *
+*****************/
+
+.profile-form,
+.checkin-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 5px 1.5em;
+}
+
+.checkin-form .fa {
+    vertical-align: middle;
+}
+
+
+/****************
 *     COMMON    *
 *****************/
+
+.star{
+    padding: 0 12px;
+}
+
+.fa-star {
+    color: #0BB287;
+}
+
+.fa-star.o{
+    color: #B0FFEA;
+}
 
 .badge {
     display: inline-block;
@@ -236,17 +339,13 @@ a {
     text-decoration: none;
 }
 
-.btn-primary {
-    color: #fff;
-    background: #F0592B;
-}
-
 .topBox {
     position: relative;
     height: 200px;
     width: 100%;
     border-bottom: 1px solid #B54132;
     overflow: hidden;
+    background: #BBE3DB;
 }
 
 .topBox img {
@@ -259,9 +358,10 @@ a {
     position: absolute;
     bottom: 0;
     right: 0;
-    border-top: 1px solid #d6e9c6;
-    border-right: 1px solid #d6e9c6;
+    border-bottom: none;
+    border-right: none;
     border-radius: 0;
+    height: 30px;
 }
 
 .topBox .map {
@@ -271,74 +371,6 @@ a {
 
 .topBox .btn {
     border-radius: 0;
-}
-
-
-/****************
-*      FORM     *
-*****************/
-
-.pure-control-group .pure-button {
-    width: 100%;
-    height: 75px;
-    background: #F0592B;
-    border: 1px solid #B54132;
-}
-
-.pure-control-group{
-    margin-top: 10px
-}
-
-.form-control {
-    width: 100%;
-    border-radius: 0 !important;
-}
-
-.pure-control-group label {
-    font-weight: bold;
-}
-
-.pure-controls .btn-primary {
-    float: right;
-}
-
-
-/****************
-*     TABLE     *
-*****************/
-
-.pure-table {
-    width: 100%;
-}
-
-.pure-table tbody {
-    border-bottom: 1px solid #ddd;
-}
-
-.pure-table .listBox {
-    width: 75px;
-    height: 75px;
-    display: none;
-}
-
-.pure-table td {
-    padding: 4px !important;
-}
-
-
-/****************
-*    Profile and Checkin    *
-*****************/
-
-.profile-form,
-.checkin-form {
-    max-width: 500px;
-    margin: auto;
-    padding: 1.5em;
-}
-
-.checkin-form .fa {
-    vertical-align: middle;
 }
 
 
@@ -358,20 +390,43 @@ a {
 *****************/
 
 @media screen and (min-width: 450px) {
+    .mapBox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 50%;
+        width: 50%;
+        height: inherit;
+        border-right: 1px solid #B54132;
+    }
+    
+    .checkinList {
+        overflow: scroll;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 50%;
+        width: 50%;
+        height: inherit;
+
+    }
+    .checkinList td{
+        border-left: none;
+    }
     .table .listBox {
         display: block;
     }
-    .table .details div:nth-child(2) {
-        position: absolute;
-        bottom: 0;
-        width: 95%;
+    .pure-form-aligned .pure-controls{
+        margin: 0;
     }
     .form-control {
         width: 250px;
     }
-    .pure-controls .btn-primary {
-        float: none;
-        margin-left: 10px;
+    .pure-controls .pure-button {
+        margin: 10px 20px;
+        width: 200px;
     }
     .pure-control-group .pure-button {
         width: 250px;
