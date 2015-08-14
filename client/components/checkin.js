@@ -11,6 +11,7 @@ system.cmp.checkin = {
         return m('form.checkin-form.center-form.pure-form.pure-form-aligned', [
             mutil.formGroup([
                 m('label', 'Rating'),
+//                 TODO: should we move rating to own funcion
                 m('span.rating', [
                     [1, 2, 3, 4, 5].map(function(i) {
                         return m('span.star', {
