@@ -1,7 +1,10 @@
 system.cmp.checkin = {
     controller: function(args) {
         return {
-            rating: m.prop(0)
+            rating: {
+                chosen: m.prop(0),
+                couldB: m.prop(0)
+            }
         };
     },
     view: function(ctrl, args) {
@@ -12,9 +15,15 @@ system.cmp.checkin = {
                     [1, 2, 3, 4, 5].map(function(i) {
                         return m('span.star', {
                             onclick: function() {
-                                ctrl.rating(i)
+                                ctrl.rating.chosen(i);
+                            },
+                            onmouseover: function() {
+                                ctrl.rating.couldB(i);
+                            },
+                            onmouseout: function() {
+                                ctrl.rating.couldB(ctrl.rating.chosen());
                             }
-                        }, [mutil.icon('star fa-2x' + (!(i <= ctrl.rating()) ? ' o' : ''))])
+                        }, [mutil.icon('star fa-2x' + (!(i <= ctrl.rating.couldB()) ? ' o' : ''))])
                     })
                 ])
             ]),

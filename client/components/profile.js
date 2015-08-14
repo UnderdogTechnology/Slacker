@@ -53,10 +53,12 @@ system.cmp.profile = {
                 ]),
                 mutil.formControls([
                     m('button.pure-button', 'Cancel'),
-                    m('button.pure-button.btn-primary', {onclick: function(e){
-                        //system.model.profile.me(me.userName());
-                        e.preventDefault();
-                    }}, 'Update')
+                    m('button.pure-button.btn-primary', {
+                        onclick: function(e) {
+                            //system.model.profile.me(me.userName());
+                            e.preventDefault();
+                        }
+                    }, 'Update')
                 ])
             ])
         ]);

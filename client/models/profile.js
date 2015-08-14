@@ -15,6 +15,6 @@ system.model.profile = {
     },
     find: function(id) {
         var list = [];
-        return util.findModel(list, id);
+        return util.findModel(list, id, 'id');
     }
 };

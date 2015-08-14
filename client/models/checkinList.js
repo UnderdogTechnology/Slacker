@@ -1,5 +1,5 @@
 system.model.checkinList = {
-    find: function(id) {
+    find: function(expr, sel) {
         var list = [{
             id: '1',
             location: new google.maps.LatLng(45.4417885, -75.78539030000002),
@@ -15,6 +15,6 @@ system.model.checkinList = {
             distance: 10,
             rating: 3
         }];
-        return util.findModel(list, id);
+        return util.findModel(list, expr, sel);
     }
 };

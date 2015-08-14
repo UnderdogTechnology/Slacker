@@ -39,7 +39,7 @@ system.cmp.nav = {
                 onclick: ctrl.hideMenu,
                 hidden: !ctrl.menuVisible()
             }),
-            m('span.menuButton.fa.fa-bars', {
+            m('span.menu-btn.fa.fa-bars', {
                 onclick: ctrl.toggleMenu
             }),
             m('div.menu', {

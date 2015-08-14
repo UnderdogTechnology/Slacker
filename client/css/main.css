@@ -67,7 +67,7 @@ a {
     font-size: 1.5em;
 }
 
-.menuButton {
+.menu-btn {
     position: absolute;
     top: 0;
     left: 0;
@@ -139,7 +139,7 @@ body {
 .menu .profilePic {
     height: 75px;
     width: 75px;
-/*     border: 2px solid #B54132; */
+    /*     border: 2px solid #B54132; */
     border-radius: 50%;
 }
 
@@ -192,9 +192,55 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 9997;
+    z-index: 9998;
     /*     background-color: rgba(0, 0, 0, .65); */
     /*     background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; */
+}
+
+
+/****************
+*     SEARCH    *
+*****************/
+
+.search {
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 12px 15%;
+    height: 45px;
+    z-index: 9998;
+    text-align: center;
+}
+
+.search .search-term {
+    width: 70%;
+    background: #fff;
+    border: 1px solid #148264;
+}
+
+.search-bar {
+    width: 200px;
+    position: absolute;
+    top: -100px;
+    transition: 300ms top;
+}
+
+.search-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    padding: 14px;
+    color: #fff;
+    text-shadow: -1px 0 #B54132, 0 1px #B54132, 1px 0 #B54132, 0 -1px #B54132;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.search-visible {
+    position: relative;
+    top: 0px !important;
 }
 
 

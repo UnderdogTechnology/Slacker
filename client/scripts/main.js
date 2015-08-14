@@ -13,7 +13,7 @@
         // COMPONENTS
         'components/': [
             'nav', 'notification', 'calculator', 'checkinList', 'checkin', 'donate',
-            'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting'
+            'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting', 'search'
         ]
     };
 
@@ -40,7 +40,7 @@
             }),
             m('div.content', {
                 overflow: (m.component(cmp.nav).controller().menuVisible() ? 'none' : 'scroll')
-            }, content)
+            }, content),
         ]);
     };
 
@@ -113,8 +113,7 @@
         m.route.mode = 'hash';
         // add any extra non-core routes
         util.extend(routes, {
-            '/profile/:name': applyLayout('Profile', cmp.profile),
-            '/checkinList': applyLayout('Check-ins', cmp.checkisList)
+            '/profile/:name': applyLayout('Profile', cmp.profile)
         });
 
         m.route(document.body, '/', routes);

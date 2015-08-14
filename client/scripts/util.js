@@ -1,6 +1,6 @@
 /**
-** Generic Utilities
-**/
+ ** Generic Utilities
+ **/
 var util = {
     q: function(q, c) {
         return (c || document).querySelector(q);
@@ -19,17 +19,25 @@ var util = {
         }
         return string;
     },
-    findModel: function(list, id) {
-        if (id) {
-            id = id.toString();
-            var found = -1;
+    findModel: function(list, expr, sel) {
+        if (expr) {
+            expr = expr.toString();
+            var found = -1,
+                foundList = [];
             list.some(function(item, index) {
-                if (item.id === id) {
+                if (sel && item[sel].match(expr)) {
                     found = index;
                     return true;
+                } else {
+                    for (var key in item) {
+                        if (item[key].toString().match(expr)) {
+                            foundList.push(item);
+                            break;
+                        }
+                    }
                 }
             });
-            return m.prop(list[index]);
+            return m.prop((foundList.length) ? foundList : list[found]);
         } else {
             return m.prop(list);
         }
@@ -45,8 +53,8 @@ var util = {
 };
 
 /**
-** Mithril Specific Utilities
-**/
+ ** Mithril Specific Utilities
+ **/
 var mutil = {
     convertRating: function(rating) {
         var i = 0,
