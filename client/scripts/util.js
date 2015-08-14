@@ -26,8 +26,7 @@ var util = {
                 foundList = [];
             list.some(function(item, index) {
                 if (sel && item[sel].match(expr)) {
-                    found = index;
-                    return true;
+                    foundList.push(item);
                 } else {
                     for (var key in item) {
                         if (item[key].toString().match(expr)) {
