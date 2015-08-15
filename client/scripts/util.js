@@ -22,10 +22,9 @@ var util = {
     findModel: function(list, expr, sel) {
         if (expr) {
             expr = expr.toString();
-            var found = -1,
-                foundList = [];
+            var foundList = [];
             list.some(function(item, index) {
-                if (sel && item[sel].match(expr)) {
+                if (sel && item[sel].toString().match(expr)) {
                     foundList.push(item);
                 } else {
                     for (var key in item) {
@@ -36,7 +35,7 @@ var util = {
                     }
                 }
             });
-            return m.prop((foundList.length) ? foundList : list[found]);
+            return m.prop(foundList);
         } else {
             return m.prop(list);
         }
