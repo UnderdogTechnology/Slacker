@@ -1,6 +1,5 @@
 system.model.profile = {
-    me: function() {
-        return m.prop({
+    me: m.prop({
             id: '1',
             location: m.prop(null),
             actualName: m.prop('David Magee'),
@@ -11,8 +10,7 @@ system.model.profile = {
             notifications: {
                 Inbox: 10
             }
-        });
-    },
+    }),
     find: function(id) {
         var list = [];
         return util.findModel(list, id, 'id');

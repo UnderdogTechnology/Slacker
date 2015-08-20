@@ -5,7 +5,7 @@ system.cmp.profile = {
         };
     },
     view: function(ctrl, args) {
-        var me = ctrl.me();
+        var me = ctrl.me;
         return m('div.profile', [
             m('div.top-box', [
                 m('img', {
@@ -48,14 +48,15 @@ system.cmp.profile = {
                 mutil.formGroup([
                     m('label', 'Bio'),
                     m('textarea.form-control', {
-                        placeholder: 'Bio'
+                        placeholder: 'Bio',
+                        value: me.bio()
                     }, me.bio())
                 ]),
                 mutil.formControls([
                     m('button.pure-button', 'Cancel'),
                     m('button.pure-button.btn-primary', {
                         onclick: function(e) {
-                            //system.model.profile.me(me.userName());
+                            system.model.profile.me(me);
                             e.preventDefault();
                         }
                     }, 'Update')

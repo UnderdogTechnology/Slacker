@@ -8,7 +8,7 @@
 input,
 textarea,
 button {
-    border-radius: 0 !important;
+    border-radius: 2px !important;
 }
 
 a {
@@ -44,7 +44,6 @@ a {
 .fa-star.o {
     color: #BBE3DB;
 }
-
 
 /****************
 *     HEADER    *
@@ -197,6 +196,74 @@ body {
     /*     background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; */
 }
 
+/****************
+*    SETTINGS   *
+*****************/
+
+.setting {
+    margin: 15px 5px;
+    height: 25px;
+}
+
+.setting .title{
+    font-weight:bold;
+    width: 70%;
+}
+
+.tgl{
+    border-radius: 2px;
+    position: relative;
+    float: right;
+    height: 25px;
+    width: 65px;
+    border: 1px solid #000;
+    color: #fff;
+    overflow:hidden;
+}
+
+.tgl .tgl-btn{
+    position:absolute;
+    left: -3px;
+    display: inline-block;
+    overflow: hidden;
+    color: #fff;
+    width: 150px;
+    -webkit-transition: left .5s, left .5s, -webkit-transform .5s;
+    transition: left .5s, left .5s, transform .5ss;
+}
+
+.tgl .tgl-btn div{
+    height: 25px;
+    width: 55px;
+    line-height: 25px;
+    text-align: center;
+    float: left;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+.tgl .tgl-btn .on{
+    background: #F0592B;
+    border-color: #B54132;
+}
+
+.tgl .tgl-btn .center{
+    width: 10px;
+    background: #fff;
+}
+
+.tgl .tgl-btn .off{
+    background: #0BB287;
+    border-color: #148264;
+}
+
+.tgl .tgl-btn.tgl-off {
+    left:-58px;
+}
+
+.tgl .tgl-switch{
+    display: none;
+}
 
 /****************
 *     SEARCH    *
