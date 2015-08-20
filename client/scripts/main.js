@@ -9,7 +9,7 @@
         // EXTRA
         'scripts/': ['util'],
         // MODELS
-        'models/': ['checkinList', 'profile'],
+        'models/': ['checkinList', 'profile', 'setting'],
         // COMPONENTS
         'components/': [
             'nav', 'notification', 'calculator', 'checkinList', 'checkin', 'donate',

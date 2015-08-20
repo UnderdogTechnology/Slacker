@@ -242,17 +242,17 @@ body {
     border-right: 1px solid #000;
 }
 
-.tgl .tgl-btn .on{
+.tgl .tgl-btn .tgl-opt:first-child{
     background: #F0592B;
     border-color: #B54132;
 }
 
-.tgl .tgl-btn .center{
+.tgl .tgl-btn .separator{
     width: 10px;
     background: #fff;
 }
 
-.tgl .tgl-btn .off{
+.tgl .tgl-btn .tgl-opt:nth-child(3){
     background: #0BB287;
     border-color: #148264;
 }
@@ -413,7 +413,7 @@ body {
 *****************/
 
 .star {
-    padding: 0 12px;
+    padding: 0 10px;
 }
 
 .badge {
