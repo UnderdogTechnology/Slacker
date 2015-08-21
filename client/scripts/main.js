@@ -17,19 +17,7 @@
         ]
     };
 
-    var ctx = system.ctx = {
-        profile: {
-            location: null,
-            actualName: 'David Magee',
-            userName: 'divide100',
-            pic: './images/male.png',
-            email: 'magee.david1994@gmail.com',
-            bio: 'I like turtles',
-            notifications: {
-                Inbox: 10
-            }
-        }
-    };
+    var ctx = system.ctx = {};
 
     var layout = function(title, nav, content) {
         return m('div.slacker', [

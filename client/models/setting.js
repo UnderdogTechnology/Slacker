@@ -1,15 +1,20 @@
 system.model.setting = {
     find: function(expr, sel) {
         var list = [{
-            label: 'settingOne',
-            optOne: 'ON',
-            optTwo: 'OFF',
+            label: 'switchOff',
+            type: 'switch',
+            options: ['ON', 'OFF'],
             selected: false
         }, {
-            label: 'settingTwo',
-            optOne: 'ON',
-            optTwo: 'OFF',
+            label: 'switchOn',
+            type: 'switch',
+            options: ['ON', 'OFF'],
             selected: true
+        }, {
+            label: 'ddlOne',
+            type: 'dropdown',
+            options: ['One', 'Two', 'Three'],
+            selected: 1
         }];
         return util.findModel(list, expr, sel);
     }

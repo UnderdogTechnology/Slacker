@@ -449,6 +449,8 @@ body {
     border-bottom: none;
     border-right: none;
     font-size: 90%;
+    border-radius: 0;
+    border-top-left-radius: 2px;
 }
 
 .top-box .map {

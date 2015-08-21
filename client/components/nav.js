@@ -32,7 +32,7 @@ system.cmp.nav = {
         return ctrl;
     },
     view: function(ctrl, args) {
-        var ctx = system.ctx;
+        var me = system.model.profile.me();
         var items = args.items();
         return m('div.slack-nav', [
             m('div.overlay', {
@@ -47,9 +47,9 @@ system.cmp.nav = {
             }, [
                 m('div.profile', [
                     m('img.profilePic', {
-                        src: (ctx.profile.pic ? ctx.profile.pic : './images/ProfilePic.png')
+                        src: me.pic()
                     }),
-                    m('span.profileName', (ctx.profile.actualName ? ctx.profile.actualName : ctx.profile.userName))
+                    m('span.profileName', (me.actualName() ? me.actualName() : me.userName()))
                 ]),
                 m('ul', [
                     items.map(function(item, index) {
@@ -63,7 +63,7 @@ system.cmp.nav = {
                             }, [
                                 m('i.nav-icon', {class: item.icon}),
                                 m('span.itemName', item.name), 
-                                ctx.profile.notifications && ctx.profile.notifications[item.name] ? m('span.badge', ctx.profile.notifications[item.name]) : ''
+                                me.notifications && me.notifications[item.name] ? m('span.badge', me.notifications[item.name]) : ''
                             ])
                         );
                     }),
