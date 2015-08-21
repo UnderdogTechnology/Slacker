@@ -1,9 +1,13 @@
 system.cmp.home = {
     controller: function(args) {
-        return {
+        var model = system.model.checkinList;
+        var ctrl = {
             location: m.prop(null),
-            checkinList: system.model.checkinList.find()
+            model: model,
+            checkinList: model.find(),
+            searchVisible: true
         };
+        return ctrl;
     },
     view: function(ctrl, args) {
         return m('div.home', [

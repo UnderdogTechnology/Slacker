@@ -1,6 +1,6 @@
 system.cmp.nav = {
     controller: function(args) {
-        var menuVisible = m.prop(false);
+        var menuVisible = args.menuVisible || m.prop(false);
         var ctrl = {
             menuVisible: menuVisible,
             showMenu: function() {
@@ -61,8 +61,10 @@ system.cmp.nav = {
                                 href: item.url,
                                 config: ctrl.changeRoute
                             }, [
-                                m('i.nav-icon', {class: item.icon}),
-                                m('span.itemName', item.name), 
+                                m('i.nav-icon', {
+                                    class: item.icon
+                                }),
+                                m('span.itemName', item.name),
                                 me.notifications && me.notifications[item.name] ? m('span.badge', me.notifications[item.name]) : ''
                             ])
                         );

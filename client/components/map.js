@@ -47,9 +47,9 @@ system.cmp.map = {
                         map: ctrl.map(),
                         icon: detail.icon ? {
                             url: detail.icon,
-                            scaledSize: new google.maps.Size(30,30),
-                            origin: new google.maps.Point(0,0),
-                            anchor: new google.maps.Point(0,30)
+                            scaledSize: new google.maps.Size(30, 30),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(0, 30)
                         } : null,
                         title: detail.title
                     });

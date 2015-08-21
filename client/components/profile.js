@@ -1,7 +1,9 @@
 system.cmp.profile = {
     controller: function(args) {
+        var model = system.model.profile;
         return {
-            me: args.me || system.model.profile.me(),
+            model: model,
+            me: args.me || model.me(),
         };
     },
     view: function(ctrl, args) {
@@ -56,7 +58,7 @@ system.cmp.profile = {
                     m('button.pure-button', 'Cancel'),
                     m('button.pure-button.btn-primary', {
                         onclick: function(e) {
-                            system.model.profile.me(me);
+                            ctrl.model.me(me);
                             e.preventDefault();
                         }
                     }, 'Update')

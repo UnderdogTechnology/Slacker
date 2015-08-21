@@ -74,5 +74,43 @@ var mutil = {
     },
     icon: function(name, children) {
         return m('i.fa.fa-' + name, children);
+    },
+    createSwitch: function(obj, prop) {
+        var selected = obj[prop];
+        return m('div.tgl', [
+            m('label.tgl-btn', {
+                    class: (selected ? 'tgl-on' : 'tgl-off')
+                },
+                m('div.tgl-opt', 'ON'),
+                m('div.separator'),
+                m('div.tgl-opt', 'OFF'),
+                m('input[type="checkbox"].tgl-switch', {
+                    checked: selected,
+                    onclick: function(evt) {
+                        obj[prop] = !selected;
+                    }
+                }))
+        ]);
+    },
+    createDropdown: function(obj, list, prop) {
+        var selectedIndex = obj[prop];
+        console.log(selectedIndex);
+        return m('select', {
+            onchange: function(evt) {
+                obj[prop] = evt.target.selectedIndex;
+            }
+        }, list.map(function(option, index) {
+            return m('option', {
+                value: index,
+                selected: index === selectedIndex
+            }, option);
+        }));
+    }
+};
+
+// reusable config attrs
+mutil.c = {
+    autofocus: function(elem, isInit) {
+        elem.focus();
     }
 };

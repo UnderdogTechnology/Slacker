@@ -45,6 +45,7 @@ a {
     color: #BBE3DB;
 }
 
+
 /****************
 *     HEADER    *
 *****************/
@@ -87,7 +88,7 @@ a {
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     /* font-size: 14px; */
-    /* line-height: 1.42857143; */
+    line-height: 1.42857143;
     color: #333;
     background-color: #fff;
 }
@@ -196,43 +197,49 @@ body {
     /*     background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; */
 }
 
+
 /****************
 *    SETTINGS   *
 *****************/
 
-.setting {
+
+/*we need to either use custom css for the settings form or pure css in line with what the rest of the app uses*/
+
+
+/*.setting {
     margin: 15px 5px;
     height: 25px;
 }
 
-.setting .title{
-    font-weight:bold;
+.setting .title {
+    font-weight: bold;
     width: 70%;
-}
+}*/
 
-.tgl{
+.tgl {
     border-radius: 2px;
     position: relative;
-    float: right;
     height: 25px;
     width: 65px;
     border: 1px solid #000;
     color: #fff;
-    overflow:hidden;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.tgl .tgl-btn{
-    position:absolute;
+.tgl .tgl-btn {
+    position: absolute;
     left: -3px;
-    display: inline-block;
+    display: inline-block !important;
     overflow: hidden;
     color: #fff;
-    width: 150px;
+    width: 150px !important;
     -webkit-transition: left .5s, left .5s, -webkit-transform .5s;
     transition: left .5s, left .5s, transform .5ss;
 }
 
-.tgl .tgl-btn div{
+.tgl .tgl-btn div {
     height: 25px;
     width: 55px;
     line-height: 25px;
@@ -242,60 +249,54 @@ body {
     border-right: 1px solid #000;
 }
 
-.tgl .tgl-btn .tgl-opt:first-child{
+.tgl .tgl-btn .tgl-opt:first-child {
     background: #F0592B;
     border-color: #B54132;
 }
 
-.tgl .tgl-btn .separator{
+.tgl .tgl-btn .separator {
     width: 10px;
     background: #fff;
 }
 
-.tgl .tgl-btn .tgl-opt:nth-child(3){
+.tgl .tgl-btn .tgl-opt:nth-child(3) {
     background: #0BB287;
     border-color: #148264;
 }
 
 .tgl .tgl-btn.tgl-off {
-    left:-58px;
+    left: -58px;
 }
 
-.tgl .tgl-switch{
+.tgl .tgl-switch {
     display: none;
 }
+
 
 /****************
 *     SEARCH    *
 *****************/
 
 .search {
-    position: fixed;
-    right: 0;
-    top: 0;
-    padding: 12px 15%;
     height: 45px;
     z-index: 9998;
-    text-align: center;
-}
-
-.search .search-term {
-    width: 70%;
-    background: #fff;
-    border: 1px solid #148264;
 }
 
 .search-bar {
-    width: 200px;
-    position: absolute;
+    text-align: center;
+    position: fixed;
     top: -100px;
+    margin: 0 auto;
     transition: 300ms top;
+    padding-top: 5px;
+    width: 100%;
 }
 
 .search-btn {
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 9999;
     font-size: 20px;
     padding: 14px;
     color: #fff;
@@ -305,9 +306,29 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-.search-visible {
-    position: relative;
-    top: 0px !important;
+.search .search-term {
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    background: #F0592B;
+    border: none;
+    border-bottom: 1px solid #B54132;
+    width: 75%;
+}
+
+.search .search-term::-webkit-input-placeholder,
+.search .search-term:-moz-placeholder,
+.search .search-term::-moz-placeholder,
+.search .search-term:-ms-input-placeholder {
+    color: #fff;
+}
+
+.search .search-term:focus {
+    outline: none;
+}
+
+.search-bar-visible {
+    top: 0 !important;
 }
 
 

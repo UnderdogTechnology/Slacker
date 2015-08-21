@@ -1,40 +1,56 @@
 system.cmp.search = {
     controller: function(args) {
-        var searchVisible = m.prop(false);
         var ctrl = {
-            searchVisible: searchVisible,
+            searchBarVisible: m.prop(false),
+            searchCriteria: args.searchCriteria || m.prop(''),
+            searchValue: m.prop(''),
             showSearch: function() {
-                searchVisible(true);
+                ctrl.searchBarVisible(true);
             },
             hideSearch: function() {
-                searchVisible(false);
+                ctrl.searchValue('');
+                ctrl.searchBarVisible(false);
             },
             toggleSearch: function() {
-                if (searchVisible()) {
+                if (ctrl.searchBarVisible()) {
                     ctrl.hideSearch();
                 } else {
                     ctrl.showSearch();
                 }
+            },
+            performSearch: function() {
+                ctrl.searchCriteria(ctrl.searchValue());
+                ctrl.hideSearch();
             }
-            //search: args.find()
         };
         return ctrl;
     },
     view: function(ctrl, args) {
-        return m('div.search', [
-            m('span.search-btn.fa.fa-search.fa-flip-horizontal', {
-                onclick: ctrl.toggleSearch
+        return m('div.search', {
+            hidden: !args.searchVisible()
+        }, [
+            m('span.search-btn.fa', {
+                onclick: function() {
+                    if (ctrl.searchBarVisible()) {
+                        ctrl.performSearch();
+                    } else {
+                        ctrl.showSearch();
+                    }
+                },
+                class: ctrl.searchBarVisible() ? 'fa-arrow-right' : 'fa-search fa-flip-horizontal'
             }),
             m('div.search-bar', {
-                    class: ctrl.searchVisible() ? 'search-visible' : ''},
-            [
-                m('input[type="text"].search-term', {
-                    onchange: function(e){
-                        console.log(e.target.value);
+                class: ctrl.searchBarVisible() ? 'search-bar-visible' : ''
+            }, [
+                m('input[type="search"].search-term', {
+                    config: mutil.c.autofocus,
+                    hidden: !ctrl.searchBarVisible(),
+                    onchange: function(e) {
+                        ctrl.searchValue(e.target.value);
+                        ctrl.performSearch();
                     },
-                    hidden: !ctrl.searchVisible(),
-                    autofocus: ctrl.searchVisible(),
                     placeholder: 'Search',
+                    value: ctrl.searchValue()
                 })
             ])
         ]);

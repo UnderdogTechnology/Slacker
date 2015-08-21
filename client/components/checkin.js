@@ -11,7 +11,7 @@ system.cmp.checkin = {
         return m('form.checkin-form.center-form.pure-form.pure-form-aligned', [
             mutil.formGroup([
                 m('label', 'Rating'),
-//                 TODO: should we move rating to own funcion
+                // TODO: should we move rating to own funcion
                 m('span.rating', [
                     [1, 2, 3, 4, 5].map(function(i) {
                         return m('span.star', {
@@ -24,7 +24,7 @@ system.cmp.checkin = {
                             onmouseout: function() {
                                 ctrl.rating.couldB(ctrl.rating.chosen());
                             }
-                        }, [mutil.icon('star fa-2x' + (!(i <= ctrl.rating.couldB()) ? ' o' : ''))])
+                        }, [mutil.icon('star fa-2x' + (i <= ctrl.rating.couldB() ? '' : ' o'))])
                     })
                 ])
             ]),
@@ -33,7 +33,7 @@ system.cmp.checkin = {
                 m('button.pure-button.form-control', {
                     type: 'button',
                     onclick: function() {
-                        util.q('#uploadPic').click()
+                        util.q('#uploadPic').click();
                     }
                 }, mutil.icon('camera-retro fa-2x')),
                 m('input[type="file"].hidden#uploadPic', {

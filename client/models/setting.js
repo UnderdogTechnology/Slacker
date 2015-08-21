@@ -14,7 +14,7 @@ system.model.setting = {
             label: 'ddlOne',
             type: 'dropdown',
             options: ['One', 'Two', 'Three'],
-            selected: 1
+            selected: 2
         }];
         return util.findModel(list, expr, sel);
     }

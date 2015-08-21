@@ -1,40 +1,31 @@
 system.cmp.setting = {
     controller: function(args) {
+        var model = system.model.setting;
         var ctrl = {
-            settingList: args.settingList || system.model.setting.find(),
-            flipSwitch: function(key) {
-                ctrl.settingList()[key].selected = !ctrl.settingList()[key].selected;
-            },
-            createSwitch: function(setting, index) {
-                return m('div.setting',
-                    m('span.title', setting.label),m('div.tgl', [
-                        m('label.tgl-btn', {
-                                class: (setting.selected ? 'tgl-on' : 'tgl-off')
-                            },
-                            m('div.tgl-opt', setting.options[0]),
-                            m('div.separator'),
-                            m('div.tgl-opt', setting.options[0]),
-                            m('input[type="checkbox"].tgl-switch', {
-                                id: 'setting_'.concat(index),
-                                checked: setting.selected,
-                                onclick: function(evt) {
-                                    ctrl.flipSwitch(evt.target.id.split('_')[1])
-                                }
-                            }))
-                    ])
-                    );
-            }
+            model: model,
+            settingList: args.settingList || model.find(),
         };
         return ctrl;
     },
     view: function(ctrl, args) {
-        return m('div', [
+        return m('form.center-form.pure-form.pure-form-aligned', [
             ctrl.settingList().map(function(setting, index) {
-                    switch(setting.type){
-                        case 'switch':
-                             return ctrl.createSwitch(setting, index);
+                console.log(setting);
+                var control;
+                switch (setting.type) {
+                    case 'switch':
+                        control = mutil.createSwitch(setting, 'selected');
                         break;
-                    }
+                    case 'dropdown':
+                        control = mutil.createDropdown(setting, setting.options, 'selected');
+                        break;
+                }
+                return mutil.formGroup([
+                    m('label', setting.label),
+                    control
+                ], {
+                    class: 'setting'
+                });
             })
         ]);
     }

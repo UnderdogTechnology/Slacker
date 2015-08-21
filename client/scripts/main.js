@@ -19,27 +19,34 @@
 
     var ctx = system.ctx = {};
 
-    var layout = function(title, nav, content) {
-        return m('div.slacker', [
-            m('h1.header', title),
-            m.component(cmp.nav, {
-                active: title,
-                items: nav
-            }),
-            m('div.content', {
-                overflow: (m.component(cmp.nav).controller().menuVisible() ? 'none' : 'scroll')
-            }, content),
-        ]);
-    };
-
-    var applyLayout = function(title, nav, page) {
+    var layout = function(title, nav, content, needsSearch) {
         return {
-            controller: function() {
+            controller: function(args) {
                 document.title = 'SlackR | ' + title;
+                return {
+                    menuVisible: m.prop(false),
+                    searchCriteria: m.prop(''),
+                    searchVisible: m.prop(needsSearch || false)
+                };
             },
-            view: function() {
-                // TODO: should we pass an empty obj here as the args, or leave as undefined
-                return layout(title, nav, m.component(page, {}));
+            view: function(ctrl, args) {
+                return m('div.slacker', [
+                    m('h1.header', title),
+                    m.component(cmp.search, {
+                        searchCriteria: ctrl.searchCriteria,
+                        searchVisible: ctrl.searchVisible
+                    }),
+                    m.component(cmp.nav, {
+                        active: title,
+                        items: nav,
+                        menuVisible: ctrl.menuVisible
+                    }),
+                    m('div.content', {
+                        overflow: (ctrl.menuVisible() ? 'none' : 'scroll')
+                    }, m.component(content, {
+                        searchCriteria: ctrl.searchCriteria
+                    })),
+                ]);
             }
         };
     };
@@ -59,7 +66,8 @@
             name: 'Meetups',
             url: '/meetups',
             icon: 'fa fa-road fa-lg',
-            component: cmp.meetup
+            component: cmp.meetup,
+            needsSearch: true
         }, {
             name: 'Calculator',
             url: '/calculator',
@@ -69,7 +77,8 @@
             name: 'Inbox',
             url: '/inbox',
             icon: 'fa fa-envelope fa-lg',
-            component: cmp.inbox
+            component: cmp.inbox,
+            needsSearch: true
         }, {
             name: 'Profile',
             url: '/profile',
@@ -79,7 +88,8 @@
             name: 'Settings',
             url: '/settings',
             icon: 'fa fa-cogs fa-lg',
-            component: cmp.setting
+            component: cmp.setting,
+            needsSearch: true
         }, {
             name: 'Donate',
             url: '/donate',
@@ -94,15 +104,15 @@
         // apply the layout to each component in the nav and create the core route object
         var routes = {};
         navItems().forEach(function(item) {
-            item.component = applyLayout(item.name, navItems, item.component);
+            item.component = layout(item.name, navItems, item.component, item.needsSearch);
             routes[item.url] = item.component;
         });
+        // add any extra non-core routes
+        // util.extend(routes, {
+        //     '/profile/:name': layout('Profile', navItems, cmp.profile, false)
+        // });
         // use hash for routing, NOTE: we'll probably change this to slash later once it's hosted
         m.route.mode = 'hash';
-        // add any extra non-core routes
-        util.extend(routes, {
-            '/profile/:name': applyLayout('Profile', cmp.profile)
-        });
 
         m.route(document.body, '/', routes);
     };
