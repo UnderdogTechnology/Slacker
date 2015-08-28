@@ -1,19 +1,33 @@
 system.cmp.nav = {
     controller: function(args) {
-        var menuVisible = args.menuVisible || m.prop(false);
         var ctrl = {
-            menuVisible: menuVisible,
+            profileCtrlVisible: args.profileCtrlVisible || m.prop(false),
+            menuVisible: args.menuVisible || m.prop(false),
             showMenu: function() {
-                menuVisible(true);
+                ctrl.menuVisible(true);
             },
             hideMenu: function() {
-                menuVisible(false);
+                ctrl.hideProfileCtrl();
+                ctrl.menuVisible(false);
             },
             toggleMenu: function() {
-                if (menuVisible()) {
+                if (ctrl.menuVisible()) {
                     ctrl.hideMenu();
                 } else {
                     ctrl.showMenu();
+                }
+            },
+            showProfileCtrl: function() {
+                ctrl.profileCtrlVisible(true);
+            },
+            hideProfileCtrl: function() {
+                ctrl.profileCtrlVisible(false);
+            },
+            toggleProfileCtrl: function() {
+                if (ctrl.profileCtrlVisible()) {
+                    ctrl.hideProfileCtrl();
+                } else {
+                    ctrl.showProfileCtrl();
                 }
             },
             changeRoute: function(elem, isInit, ctx) {
@@ -45,11 +59,29 @@ system.cmp.nav = {
             m('div.menu', {
                 class: ctrl.menuVisible() ? 'menu-visible' : ''
             }, [
-                m('div.profile', [
-                    m('img.profilePic', {
+                m('div.profile', {
+                    onclick: ctrl.toggleProfileCtrl
+                }, [
+                    m('img.profile-pic', {
                         src: me.pic()
                     }),
-                    m('span.profileName', (me.actualName() ? me.actualName() : me.userName()))
+                    m('div.profile-name', [
+                        m('span', me.actualName() ? me.actualName() : me.userName()),
+                        m('i.fa.fa-caret-'.concat(ctrl.profileCtrlVisible() ? 'up' : 'down')),
+                        m('ul.pure-menu-list.profile-control', {
+                            hidden: !ctrl.profileCtrlVisible()
+                        }, [
+                            m('li.pure-menu-item', [
+                                m('a.pure-menu-link', {
+                                    href: '/profile',
+                                    config: m.route
+                                }, 'Edit')
+                            ]),
+                            m('li.pure-menu-item', [
+                                m('a.pure-menu-link', 'Logout')
+                            ])
+                        ])
+                    ])
                 ]),
                 m('ul', [
                     items.map(function(item, index) {

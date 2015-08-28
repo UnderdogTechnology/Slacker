@@ -24,15 +24,15 @@ var util = {
             expr = expr.toString();
             var foundList = [];
             list.some(function(item, index) {
-                if (sel && item[sel].toString().match(expr)) {
-                    foundList.push(item);
-                } else {
+                if (!sel) {
                     for (var key in item) {
                         if (item[key].toString().match(expr)) {
                             foundList.push(item);
                             break;
                         }
                     }
+                } else if (item[sel].toString().match(expr)) {
+                    foundList.push(item);
                 }
             });
             return m.prop(foundList);
@@ -94,7 +94,6 @@ var mutil = {
     },
     createDropdown: function(obj, list, prop) {
         var selectedIndex = obj[prop];
-        console.log(selectedIndex);
         return m('select', {
             onchange: function(evt) {
                 obj[prop] = evt.target.selectedIndex;

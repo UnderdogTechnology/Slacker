@@ -136,11 +136,43 @@ body {
     overflow: hidden;
 }
 
-.menu .profilePic {
+.menu .profile-pic {
     height: 75px;
     width: 75px;
     /*     border: 2px solid #B54132; */
     border-radius: 50%;
+}
+
+.menu .profile-name {
+    position: relative;
+    float: right;
+    width: 125px;
+}
+
+.menu .profile-name span {
+    width: 100px;
+    text-overflow: ellipsis;
+}
+
+.menu .profile-name i {
+    width: 25px;
+}
+
+.profile-control {
+    position: fixed;
+    background: #fff;
+    border: 1px solid #0BB287;
+    width: 125px;
+    border-radius: 2px;
+}
+
+.profile-control a {
+    color: #fff;
+    background: #148264;
+}
+
+.profile-control li:first-child {
+    border-bottom: 1px solid #0BB287;
 }
 
 .menu .logo {
@@ -156,7 +188,7 @@ body {
     background: #F0592B;
 }
 
-.menu li a {
+.menu > ul li a {
     position: relative;
     display: block;
     padding: 10px 0;
@@ -229,6 +261,7 @@ body {
 }
 
 .tgl .tgl-btn {
+    font-weight: normal;
     position: absolute;
     left: -3px;
     display: inline-block !important;
@@ -250,8 +283,8 @@ body {
 }
 
 .tgl .tgl-btn .tgl-opt:first-child {
-    background: #F0592B;
-    border-color: #B54132;
+    background: #0BB287;
+    border-color: #148264;
 }
 
 .tgl .tgl-btn .separator {
@@ -260,8 +293,8 @@ body {
 }
 
 .tgl .tgl-btn .tgl-opt:nth-child(3) {
-    background: #0BB287;
-    border-color: #148264;
+    background: #F0592B;
+    border-color: #B54132;
 }
 
 .tgl .tgl-btn.tgl-off {
@@ -293,10 +326,10 @@ body {
 }
 
 .search-btn {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 9998;
     font-size: 20px;
     padding: 14px;
     color: #fff;
@@ -310,17 +343,14 @@ body {
     color: #fff;
     height: 30px;
     line-height: 30px;
-    background: #F0592B;
+    background: #F77E5A;
     border: none;
-    border-bottom: 1px solid #B54132;
     width: 75%;
 }
 
-.search .search-term::-webkit-input-placeholder,
-.search .search-term:-moz-placeholder,
-.search .search-term::-moz-placeholder,
-.search .search-term:-ms-input-placeholder {
-    color: #fff;
+.search .search-term::-webkit-input-placeholder {
+    color: #B54132;
+    text-align: center;
 }
 
 .search .search-term:focus {
@@ -511,6 +541,10 @@ body {
     .map-box a {
         left: 0;
         right: initial;
+        border-left: none;
+        border-right: 1px solid #B54132;
+        border-top-left-radius: 0;
+        border-top-right-radius: 2px;
     }
     .checkin-box {
         right: 0;

@@ -10,7 +10,6 @@ system.cmp.setting = {
     view: function(ctrl, args) {
         return m('form.center-form.pure-form.pure-form-aligned', [
             ctrl.settingList().map(function(setting, index) {
-                console.log(setting);
                 var control;
                 switch (setting.type) {
                     case 'switch':

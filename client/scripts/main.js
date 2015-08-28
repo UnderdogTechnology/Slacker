@@ -60,7 +60,7 @@
         }, {
             name: 'Check-in',
             url: '/checkin',
-            icon: 'fa fa-check fa-lg',
+            icon: 'fa fa-map-marker fa-lg',
             component: cmp.checkin
         }, {
             name: 'Meetups',
@@ -79,11 +79,6 @@
             icon: 'fa fa-envelope fa-lg',
             component: cmp.inbox,
             needsSearch: true
-        }, {
-            name: 'Profile',
-            url: '/profile',
-            icon: 'fa fa-user fa-lg',
-            component: cmp.profile
         }, {
             name: 'Settings',
             url: '/settings',
@@ -108,9 +103,9 @@
             routes[item.url] = item.component;
         });
         // add any extra non-core routes
-        // util.extend(routes, {
-        //     '/profile/:name': layout('Profile', navItems, cmp.profile, false)
-        // });
+        util.extend(routes, {
+            '/profile': layout('Profile', navItems, cmp.profile, false)
+        });
         // use hash for routing, NOTE: we'll probably change this to slash later once it's hosted
         m.route.mode = 'hash';
 
