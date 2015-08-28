@@ -47,7 +47,6 @@ system.cmp.search = {
                     hidden: !ctrl.searchBarVisible(),
                     onchange: function(e) {
                         ctrl.searchValue(e.target.value);
-                        ctrl.performSearch();
                     },
                     placeholder: 'Search',
                     value: ctrl.searchValue()

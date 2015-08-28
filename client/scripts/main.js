@@ -12,7 +12,7 @@
         'models/': ['checkinList', 'profile', 'setting'],
         // COMPONENTS
         'components/': [
-            'nav', 'notification', 'calculator', 'checkinList', 'checkin', 'donate',
+            'nav', 'notification', 'calculator', 'checkinList', 'control', 'checkin', 'donate',
             'home', 'inbox', 'login', 'map', 'meetup', 'profile', 'setting', 'search'
         ]
     };
@@ -65,7 +65,7 @@
         }, {
             name: 'Meetups',
             url: '/meetups',
-            icon: 'fa fa-road fa-lg',
+            icon: 'fa fa-calendar fa-lg',
             component: cmp.meetup,
             needsSearch: true
         }, {
@@ -89,7 +89,7 @@
             name: 'Donate',
             url: '/donate',
             icon: 'fa fa-gift fa-lg',
-            component: cmp.donate
+            component: cmp.control
         }]);
     };
 

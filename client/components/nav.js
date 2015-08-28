@@ -7,7 +7,6 @@ system.cmp.nav = {
                 ctrl.menuVisible(true);
             },
             hideMenu: function() {
-                ctrl.hideProfileCtrl();
                 ctrl.menuVisible(false);
             },
             toggleMenu: function() {
@@ -15,19 +14,6 @@ system.cmp.nav = {
                     ctrl.hideMenu();
                 } else {
                     ctrl.showMenu();
-                }
-            },
-            showProfileCtrl: function() {
-                ctrl.profileCtrlVisible(true);
-            },
-            hideProfileCtrl: function() {
-                ctrl.profileCtrlVisible(false);
-            },
-            toggleProfileCtrl: function() {
-                if (ctrl.profileCtrlVisible()) {
-                    ctrl.hideProfileCtrl();
-                } else {
-                    ctrl.showProfileCtrl();
                 }
             },
             changeRoute: function(elem, isInit, ctx) {
@@ -59,28 +45,23 @@ system.cmp.nav = {
             m('div.menu', {
                 class: ctrl.menuVisible() ? 'menu-visible' : ''
             }, [
-                m('div.profile', {
-                    onclick: ctrl.toggleProfileCtrl
-                }, [
+                m('div.profile', [
                     m('img.profile-pic', {
                         src: me.pic()
                     }),
                     m('div.profile-name', [
-                        m('span', me.actualName() ? me.actualName() : me.userName()),
-                        m('i.fa.fa-caret-'.concat(ctrl.profileCtrlVisible() ? 'up' : 'down')),
-                        m('ul.pure-menu-list.profile-control', {
-                            hidden: !ctrl.profileCtrlVisible()
-                        }, [
-                            m('li.pure-menu-item', [
-                                m('a.pure-menu-link', {
-                                    href: '/profile',
-                                    config: m.route
-                                }, 'Edit')
-                            ]),
-                            m('li.pure-menu-item', [
-                                m('a.pure-menu-link', 'Logout')
-                            ])
-                        ])
+                        m('div', me.actualName() ? me.actualName() : me.userName()),
+                        m.component(system.cmp.control, {items: m.prop([
+                            {
+                                name: 'Edit',
+                                url: '/profile',
+                                icon: 'fa fa-user'
+                            },{
+                                name: 'Logout',
+                                url: '#',
+                                icon: 'fa fa-sign-out'
+                            }
+                        ])})
                     ])
                 ]),
                 m('ul', [

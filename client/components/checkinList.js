@@ -15,6 +15,13 @@ system.cmp.checkinList = {
                 }, [
                     m('div.checkin-location', item.location),
                     m('div.checkin-details', [
+                        m.component(system.cmp.control, {items: m.prop([
+                            {
+                                name: 'Share',
+                                url: '#',
+                                icon: 'fa fa-share-alt'
+                            }
+                        ])}),
                         m('div', util.formatter('Checked in by {username} on {date}', item)),
                         m('div', [
                             m('span.pull-left', util.formatter('{distance}km away', item)),

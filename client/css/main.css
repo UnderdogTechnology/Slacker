@@ -123,7 +123,7 @@ body {
     transition: 300ms left;
 }
 
-.menu ul {
+.menu > ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -144,35 +144,18 @@ body {
 }
 
 .menu .profile-name {
-    position: relative;
     float: right;
-    width: 125px;
 }
 
-.menu .profile-name span {
-    width: 100px;
+.menu .profile-name div {
+    float: left;
+    width: 120px;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .menu .profile-name i {
     width: 25px;
-}
-
-.profile-control {
-    position: fixed;
-    background: #fff;
-    border: 1px solid #0BB287;
-    width: 125px;
-    border-radius: 2px;
-}
-
-.profile-control a {
-    color: #fff;
-    background: #148264;
-}
-
-.profile-control li:first-child {
-    border-bottom: 1px solid #0BB287;
 }
 
 .menu .logo {
@@ -229,6 +212,41 @@ body {
     /*     background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; */
 }
 
+/****************
+*    CONTROL    *
+*****************/
+
+.control-list {
+    position: fixed;
+    background: #fff;
+    border: 1px solid #148264;
+    border-top:none;
+    width: 125px;
+    overflow: hidden;
+    border-radius:2px 0 2px 2px;
+    z-index: 9999;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 200ms ease;
+}
+
+.control-list-visible{
+    transform: scaleY(1);
+}
+
+.control-list a {
+    height: 25px;
+    color: #fff;
+    background: #0BB287;
+}
+
+.control-list li {
+    border-top: 1px solid #148264;
+}
+
+.control .control-icon {
+    padding-right: 15px;
+}
 
 /****************
 *    SETTINGS   *
@@ -413,6 +431,14 @@ body {
     padding: 10px;
     border-bottom: 1px solid #B54132;
     cursor: pointer;
+}
+
+.checkin-list .checkin-item .control{
+    float: right;
+}
+
+.checkin-list .checkin-item .control-list{
+    right:5px;
 }
 
 .checkin-item > div {
