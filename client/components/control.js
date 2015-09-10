@@ -24,7 +24,7 @@ system.cmp.control = {
             m('i.fa.fa-ellipsis-v',{
                 onclick: ctrl.toggleCtrl
             }),
-            m('ul.pure-menu-list.control-list', {
+            m('ul.pure-menu-list.control-list.secondary', {
                 class: ctrl.ctrlVisible() ? 'control-list-visible': ''
             }, [
                 items.map(function(item, index) {

@@ -30,7 +30,7 @@ system.cmp.checkin = {
             ]),
             mutil.formGroup([
                 m('label', 'Photo'),
-                m('button.pure-button.form-control', {
+                m('button.pure-button.form-control.secondary', {
                     type: 'button',
                     onclick: function() {
                         util.q('#uploadPic').click();
@@ -47,8 +47,8 @@ system.cmp.checkin = {
                 })
             ]),
             mutil.formControls([
-                m('button.pure-button', 'Cancel'),
-                m('button.pure-button.btn-primary', 'Check-in')
+                m('button.pure-button.secondary', 'Cancel'),
+                m('button.pure-button.primary', 'Check-in')
             ])
         ]);
     }

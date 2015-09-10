@@ -13,7 +13,7 @@ system.cmp.profile = {
                 m('img', {
                     src: me.pic()
                 }),
-                m('a.btn-primary.pure-button', {
+                m('a.primary.pure-button', {
                     onclick: function() {
                         util.q('#uploadPic').click();
                     }
@@ -55,8 +55,8 @@ system.cmp.profile = {
                     }, me.bio())
                 ]),
                 mutil.formControls([
-                    m('button.pure-button', 'Cancel'),
-                    m('button.pure-button.btn-primary', {
+                    m('button.pure-button.secondary', 'Cancel'),
+                    m('button.pure-button.primary', {
                         onclick: function(e) {
                             ctrl.model.me(me);
                             e.preventDefault();

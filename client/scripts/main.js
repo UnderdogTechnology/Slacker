@@ -89,7 +89,7 @@
             name: 'Donate',
             url: '/donate',
             icon: 'fa fa-gift fa-lg',
-            component: cmp.control
+            component: cmp.donate
         }]);
     };
 

@@ -81,9 +81,9 @@ var mutil = {
             m('label.tgl-btn', {
                     class: (selected ? 'tgl-on' : 'tgl-off')
                 },
-                m('div.tgl-opt', 'ON'),
+                m('div.tgl-opt.primary', 'ON'),
                 m('div.separator'),
-                m('div.tgl-opt', 'OFF'),
+                m('div.tgl-opt.secondary', 'OFF'),
                 m('input[type="checkbox"].tgl-switch', {
                     checked: selected,
                     onclick: function(evt) {
